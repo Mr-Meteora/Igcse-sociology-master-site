@@ -1,216 +1,487 @@
+# Final `index.html` Replacement
+
+Copy EVERYTHING below and replace your current `index.html` with it.
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>IGCSE Sociology — Mega Guide</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
-  :root{
-    --bg:#0D1B2A;--surface:#112236;--card:#16293F;--border:#1F3A57;--border-hi:#2A5080;
-    --text:#E8EFF7;--muted:#7A9BBF;--faint:#3A5470;
-    --gold:#C9A84C;--gold-dim:#8A6A28;--gold-bg:#1C2310;
-    --teal:#2ABFAA;--teal-dim:#1A7A6E;--teal-bg:#0D2420;
-    --blue:#4A9EE8;--blue-dim:#1A5FA0;--blue-bg:#0D1E33;
-    --green:#52C98A;--green-dim:#1A7A4A;--green-bg:#0D2218;
+:root{
+  --navy:#081826;
+  --navy-2:#10263B;
+  --card:#132D46;
+  --teal:#17BEBB;
+  --teal-soft:#1f6f73;
+  --gold:#D4AF37;
+  --gold-soft:#8d7323;
+  --text:#F4F8FB;
+  --muted:#A6C0D4;
+  --border:#214968;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:linear-gradient(180deg,var(--navy) 0%, #0D2134 100%);
+  color:var(--text);
+  font-family:'Inter',sans-serif;
+  line-height:1.8;
+}
+
+.topbar{
+  height:4px;
+  background:linear-gradient(90deg,var(--teal),var(--gold));
+}
+
+.container{
+  width:min(1100px,92%);
+  margin:auto;
+}
+
+header{
+  padding:5rem 0 4rem;
+  border-bottom:1px solid var(--border);
+}
+
+.badge{
+  display:inline-block;
+  padding:.45rem .9rem;
+  border:1px solid var(--teal-soft);
+  border-radius:999px;
+  color:var(--teal);
+  font-size:.85rem;
+  margin-bottom:1.5rem;
+  background:rgba(23,190,187,.08);
+}
+
+h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.4rem,6vw,5rem);
+  line-height:1.1;
+  margin-bottom:1.5rem;
+}
+
+h1 span{
+  color:var(--gold);
+}
+
+.hero-text{
+  max-width:760px;
+  color:var(--muted);
+  font-size:1.08rem;
+}
+
+.hero-boxes{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:1rem;
+  margin-top:2.5rem;
+}
+
+.hero-card{
+  background:rgba(19,45,70,.8);
+  border:1px solid var(--border);
+  padding:1.2rem;
+  border-radius:18px;
+  backdrop-filter:blur(6px);
+}
+
+.hero-card h3{
+  color:var(--gold);
+  margin-bottom:.5rem;
+}
+
+section{
+  padding:4rem 0;
+}
+
+.section-title{
+  font-family:'Playfair Display',serif;
+  font-size:2.1rem;
+  margin-bottom:1rem;
+}
+
+.section-sub{
+  color:var(--muted);
+  margin-bottom:2rem;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:1.3rem;
+}
+
+.card{
+  background:rgba(19,45,70,.88);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:1.5rem;
+  transition:.25s ease;
+}
+
+.card:hover{
+  transform:translateY(-4px);
+  border-color:var(--teal);
+}
+
+.card h3{
+  color:var(--gold);
+  margin-bottom:.8rem;
+  font-size:1.15rem;
+}
+
+.card p,
+.card li{
+  color:var(--muted);
+}
+
+.card ul{
+  padding-left:1.2rem;
+}
+
+.links a{
+  display:block;
+  margin:.55rem 0;
+  color:var(--teal);
+  text-decoration:none;
+  word-break:break-word;
+}
+
+.links a:hover{
+  color:var(--gold);
+}
+
+.quote{
+  margin-top:3rem;
+  padding:2rem;
+  border-left:4px solid var(--gold);
+  background:rgba(255,255,255,.03);
+  border-radius:0 18px 18px 0;
+}
+
+.quote p{
+  font-size:1.08rem;
+  color:var(--muted);
+}
+
+footer{
+  padding:3rem 0;
+  border-top:1px solid var(--border);
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:2rem;
+}
+
+footer h4{
+  color:var(--gold);
+  margin-bottom:1rem;
+}
+
+footer p,
+footer a{
+  color:var(--muted);
+  text-decoration:none;
+}
+
+footer a:hover{
+  color:var(--teal);
+}
+
+.small{
+  margin-top:2rem;
+  color:#7fa1ba;
+  font-size:.9rem;
+  border-top:1px solid var(--border);
+  padding-top:1.5rem;
+}
+
+@media(max-width:700px){
+  h1{
+    font-size:2.7rem;
   }
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:15px;line-height:1.7}
-  .top-bar{height:3px;background:linear-gradient(90deg,var(--blue) 0%,var(--teal) 45%,var(--gold) 100%)}
 
-  header{padding:3rem 2rem 2.5rem;max-width:800px;margin:0 auto;border-bottom:1px solid var(--border)}
-  .eyebrow{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;display:flex;align-items:center;gap:10px}
-  .eyebrow::before{content:'';display:inline-block;width:24px;height:1px;background:var(--gold)}
-  h1{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,5vw,3rem);font-weight:400;line-height:1.15;color:var(--text);margin-bottom:1rem}
-  h1 em{font-style:italic;color:var(--gold)}
-  .intro-text{font-size:15px;color:var(--muted);max-width:560px;margin-bottom:1.5rem;line-height:1.75}
-  .board-badge{display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border-hi);border-radius:999px;padding:6px 16px;font-size:13px;color:var(--muted)}
-  .board-badge input{border:none;background:transparent;font-family:inherit;font-size:13px;color:var(--text);outline:none;width:210px}
-  .board-badge input::placeholder{color:var(--faint)}
-
-  main{max-width:800px;margin:0 auto;padding:0 2rem 4rem}
-
-  .section{margin-top:3rem}
-  .section-header{display:flex;align-items:center;gap:12px;margin-bottom:1.25rem;padding-bottom:1rem;border-bottom:1px solid var(--border)}
-  .section-number{font-family:'Playfair Display',serif;font-size:13px;font-style:italic;color:var(--faint);min-width:22px}
-  .section-icon{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
-  .icon-gold{background:var(--gold-bg);border:1px solid var(--gold-dim)}
-  .icon-blue{background:var(--blue-bg);border:1px solid var(--blue-dim)}
-  .icon-teal{background:var(--teal-bg);border:1px solid var(--teal-dim)}
-  .icon-green{background:var(--green-bg);border:1px solid var(--green-dim)}
-  h2{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:400;color:var(--text);flex:1}
-  .section-sub{font-size:12px;font-style:italic;color:var(--faint);margin-left:auto;white-space:nowrap}
-
-  .resource-list{display:flex;flex-direction:column;gap:8px}
-  .resource-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:.85rem 1.1rem;display:flex;align-items:flex-start;gap:12px;transition:border-color .15s}
-  .resource-card:hover{border-color:var(--border-hi)}
-  .rc-icon{width:30px;height:30px;border-radius:6px;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;margin-top:1px}
-  .rc-body{flex:1;min-width:0}
-  .rc-label{font-size:13px;font-weight:500;color:var(--text);margin-bottom:2px}
-  .rc-desc{font-size:13px;color:var(--muted)}
-  .rc-link{font-size:12px;color:var(--blue);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .15s;word-break:break-all}
-  .rc-link:hover{border-color:var(--blue)}
-  .rc-placeholder{font-size:12px;color:var(--faint);font-style:italic;border:1px dashed var(--border-hi);border-radius:5px;padding:3px 8px;display:inline-block;margin-top:4px;cursor:pointer;transition:background .12s}
-  .rc-placeholder:hover{background:var(--surface)}
-
-  .add-btn{margin-top:8px;display:flex;align-items:center;gap:6px;background:transparent;border:1px dashed var(--border-hi);border-radius:10px;padding:.7rem 1rem;width:100%;font-family:inherit;font-size:13px;color:var(--faint);cursor:pointer;transition:all .15s;text-align:left}
-  .add-btn:hover{background:var(--surface);color:var(--teal);border-color:var(--teal-dim)}
-
-  .tip-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
-  .tip-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1rem 1.1rem}
-  .tip-card-label{font-size:11px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
-  .tip-card p{font-size:13.5px;color:var(--muted);line-height:1.6}
-
-  .notes-area{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-top:.5rem}
-  .notes-toolbar{display:flex;align-items:center;gap:6px;padding:.65rem 1rem;border-bottom:1px solid var(--border);background:var(--surface)}
-  .notes-toolbar span{font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);margin-right:4px}
-  .tb-btn{background:transparent;border:1px solid transparent;cursor:pointer;width:26px;height:26px;border-radius:5px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:13px;transition:all .12s}
-  .tb-btn:hover{background:var(--border);color:var(--text)}
-  .notes-textarea{background:transparent;border:none;padding:1rem;font-family:inherit;font-size:13px;color:var(--text);outline:none;width:100%;min-height:100px;resize:vertical}
-  .notes-textarea::placeholder{color:var(--faint)}
-
-  footer{max-width:800px;margin:0 auto;padding:2rem;text-align:center;border-top:1px solid var(--border);color:var(--faint);font-size:12px;margin-top:4rem}
+  .section-title{
+    font-size:1.8rem;
+  }
+}
 </style>
 </head>
 <body>
-<div class="top-bar"></div>
+
+<div class="topbar"></div>
 
 <header>
-  <div class="eyebrow">Complete Study Guide</div>
-  <h1>IGCSE Sociology <em>Mega Guide</em></h1>
-  <p class="intro-text">Everything you need to ace your IGCSE Sociology exams. Curated resources, study tips, and expert advice all in one place.</p>
-  <div class="board-badge">
-    📋 <input type="text" placeholder="Add topics, resources, or notes...">
+  <div class="container">
+    <div class="badge">Cambridge IGCSE Sociology 0495</div>
+
+    <h1>
+      The guide to <span>actually</span><br>
+      surviving Sociology.
+    </h1>
+
+    <p class="hero-text">
+      Hey, fellow sociology students 👋
+      I've been collecting resources and advice for Sociology for a while now and decided to dump it all here instead of gatekeeping it.
+      Whether you just opened the syllabus for the first time or you're three days from the exam fuelled entirely by caffeine and regret — I hope there's something here for you.
+    </p>
+
+    <div class="hero-boxes">
+      <div class="hero-card">
+        <h3>📘 Cambridge 0495</h3>
+        <p>Built mainly around the Cambridge IGCSE Sociology syllabus.</p>
+      </div>
+
+      <div class="hero-card">
+        <h3>🧠 Student-Made</h3>
+        <p>Actually written by a student who suffered through the subject.</p>
+      </div>
+
+      <div class="hero-card">
+        <h3>🚀 Constantly Growing</h3>
+        <p>Add your own notes, resources and techniques as you go.</p>
+      </div>
+    </div>
   </div>
 </header>
 
-<main>
-  <section class="section">
-    <div class="section-header">
-      <div class="section-icon icon-gold">📚</div>
-      <h2>Study Resources</h2>
-      <span class="section-sub">Growing library</span>
-    </div>
-    <div class="resource-list">
-      <div class="resource-card">
-        <div class="rc-icon">🎥</div>
-        <div class="rc-body">
-          <div class="rc-label">Khan Academy — Sociology</div>
-          <div class="rc-desc">Free video lectures covering key concepts</div>
-          <a href="#" class="rc-link">khan.academy — sociology playlists</a>
-        </div>
-      </div>
-      <div class="resource-card">
-        <div class="rc-icon">📖</div>
-        <div class="rc-body">
-          <div class="rc-label">OpenStax Sociology Textbook</div>
-          <div class="rc-desc">Comprehensive open-source textbook</div>
-          <a href="#" class="rc-link">openstax.org/books/sociology</a>
-        </div>
-      </div>
-      <div class="resource-card">
-        <div class="rc-icon">✍️</div>
-        <div class="rc-body">
-          <div class="rc-label">Past Papers & Mark Schemes</div>
-          <div class="rc-desc">Official IGCSE Sociology exam papers</div>
-          <span class="rc-placeholder">Add resource link</span>
-        </div>
-      </div>
-    </div>
-    <button class="add-btn">+ Add resource</button>
-  </section>
+<section>
+  <div class="container">
+    <h2 class="section-title">📖 Syllabus & Core Resources</h2>
+    <p class="section-sub">aka “things I wish I had on day one”</p>
 
-  <section class="section">
-    <div class="section-header">
-      <div class="section-icon icon-blue">💡</div>
-      <h2>Study Tips</h2>
-      <span class="section-sub">Expert advice</span>
-    </div>
-    <div class="tip-grid">
-      <div class="tip-card">
-        <div class="tip-card-label">🎯 Key Concept</div>
-        <p><strong>Focus on theories:</strong> Make sure you understand major sociological theories (functionalism, conflict theory, symbolic interactionism) before tackling specific topics.</p>
-      </div>
-      <div class="tip-card">
-        <div class="tip-card-label">📝 Essay Writing</div>
-        <p><strong>Use examples:</strong> Always support your arguments with real-world studies and examples. Examiners love specific citations.</p>
-      </div>
-      <div class="tip-card">
-        <div class="tip-card-label">⏱️ Time Management</div>
-        <p><strong>Practice timed essays:</strong> Familiarize yourself with exam timing. Most IGCSE Sociology papers have strict time limits.</p>
-      </div>
-      <div class="tip-card">
-        <div class="tip-card-label">🧠 Memory</div>
-        <p><strong>Create flashcards:</strong> Key terms, theorists, and studies. Use spaced repetition for long-term retention.</p>
-      </div>
-    </div>
-  </section>
+    <div class="grid">
 
-  <section class="section">
-    <div class="section-header">
-      <div class="section-icon icon-teal">📋</div>
-      <h2>My Notes</h2>
-      <span class="section-sub">Personal workspace</span>
-    </div>
-    <div class="notes-area">
-      <div class="notes-toolbar">
-        <span>📝 Notes</span>
-        <button class="tb-btn">B</button>
-        <button class="tb-btn">I</button>
-        <button class="tb-btn">U</button>
+      <div class="card links">
+        <h3>Official Syllabus</h3>
+        <p>Print it. Highlight it. Sleep with it under your pillow.</p>
+        <a href="https://www.cambridgeinternational.org/Images/662464-2025-2027-syllabus.pdf" target="_blank">
+          Cambridge 0495 Syllabus
+        </a>
       </div>
-      <textarea class="notes-textarea" placeholder="Start taking notes here... Click to edit."></textarea>
-    </div>
-  </section>
 
-  <section class="section">
-    <div class="section-header">
-      <div class="section-icon icon-green">🗺️</div>
-      <h2>Topics Covered</h2>
-      <span class="section-sub">Full syllabus</span>
+      <div class="card">
+        <h3>📚 Textbook</h3>
+        <p>
+          <strong>Sociology for Cambridge IGCSE</strong> by Jonathan Blundell.
+          This is basically the holy grail. Devour it completely.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>📝 Past Papers</h3>
+        <ul>
+          <li>Do all of them.</li>
+          <li>2025 papers are adapted to the new syllabus.</li>
+          <li>2020+ papers are still extremely useful.</li>
+        </ul>
+      </div>
+
+      <div class="card links">
+        <h3>⭐ Revision Notes</h3>
+
+        <a href="https://znotes.org/caie/igcse/sociology-0495/" target="_blank">
+          ZNotes Sociology
+        </a>
+
+        <a href="https://docs.google.com/document/d/1Zy7vT92uBJVJKDyoiYEboAc-i11hT1WyBgEfMOxnAco/edit?tab=t.70twm2nf1v67" target="_blank">
+          Zizi's Notes
+        </a>
+
+        <a href="https://www.notion.so/srishtis/Sociology-IGCSE-34cfcec1b9c64e80b3ba8b2e7bf45dc2?pvs=4" target="_blank">
+          Cheese Notes
+        </a>
+
+        <a href="https://docs.google.com/document/d/1grSsvRvRo2wQXjihby0n95jnQ8fy1DMULtcWLuHZLrs/edit" target="_blank">
+          Sociologists Cheat Sheet
+        </a>
+      </div>
+
+      <div class="card links">
+        <h3>🎥 Useful Videos</h3>
+
+        <a href="https://www.youtube.com/watch?v=QkQyJYu-dhk" target="_blank">
+          GCSE Guide Sociology Video
+        </a>
+
+        <a href="https://www.youtube.com/watch?v=rnInyQLQX-s" target="_blank">
+          r/IGCSE Study Session
+        </a>
+      </div>
+
+      <div class="card">
+        <h3>🌍 Other Useful Resources</h3>
+        <ul>
+          <li>Crash Course Sociology</li>
+          <li>HQ Academy</li>
+          <li>Miss Laiba Sociology</li>
+          <li>AYLOTI</li>
+          <li>Quizlet decks</li>
+          <li>r/IGCSE Discord sociology channel</li>
+        </ul>
+      </div>
+
     </div>
-    <div class="resource-list">
-      <div class="resource-card">
-        <div class="rc-icon">1</div>
-        <div class="rc-body">
-          <div class="rc-label">Culture & Society</div>
-          <div class="rc-desc">Values, norms, cultural transmission, and socialization</div>
-        </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2 class="section-title">🧠 General Study Advice</h2>
+    <p class="section-sub">aka “what actually works”</p>
+
+    <div class="grid">
+
+      <div class="card">
+        <h3>Active Recall</h3>
+        <p>
+          Highlighting notes in four colours and calling it studying is not studying.
+          Close the book. Test yourself. Say it out loud.
+        </p>
       </div>
-      <div class="resource-card">
-        <div class="rc-icon">2</div>
-        <div class="rc-body">
-          <div class="rc-label">Socialization & Identity</div>
-          <div class="rc-desc">Primary and secondary socialization, agents of socialization</div>
-        </div>
+
+      <div class="card">
+        <h3>Spaced Repetition</h3>
+        <p>
+          Review concepts before you forget them instead of cramming the night before.
+          Anki is genuinely amazing for this.
+        </p>
       </div>
-      <div class="resource-card">
-        <div class="rc-icon">3</div>
-        <div class="rc-body">
-          <div class="rc-label">Social Structures</div>
-          <div class="rc-desc">Status, roles, groups, and social institutions</div>
-        </div>
+
+      <div class="card">
+        <h3>Past Papers Early</h3>
+        <p>
+          Learn the exam format early.
+          Understanding how to answer the questions is half the battle.
+        </p>
       </div>
-      <div class="resource-card">
-        <div class="rc-icon">4</div>
-        <div class="rc-body">
-          <div class="rc-label">Social Inequality</div>
-          <div class="rc-desc">Stratification, class, caste, and social mobility</div>
-        </div>
+
+      <div class="card">
+        <h3>Teach Someone Else</h3>
+        <p>
+          If you can explain a concept to another person, you actually understand it.
+          Feynman technique for the win.
+        </p>
       </div>
-      <div class="resource-card">
-        <div class="rc-icon">5</div>
-        <div class="rc-body">
-          <div class="rc-label">Deviance & Control</div>
-          <div class="rc-desc">Crime, punishment, and social control mechanisms</div>
-        </div>
-      </div>
+
     </div>
-  </section>
-</main>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2 class="section-title">💡 Sociology Exam Technique</h2>
+    <p class="section-sub">aka “how to stop losing easy marks”</p>
+
+    <div class="grid">
+
+      <div class="card">
+        <h3>Learn Sociologists</h3>
+        <p>
+          Name-dropping theorists properly matters.
+          “Durkheim argued that…” sounds far stronger than “a sociologist said…”.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>PEEL Paragraphs</h3>
+        <p>
+          Point → Evidence → Explanation → Link.
+          This structure is unbelievably reliable for extended answers.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Definition Questions</h3>
+        <p>
+          Short. Precise. One example.
+          The examiner does not want your autobiography.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Mark Your Own Papers</h3>
+        <p>
+          Use the mark scheme every single time.
+          It teaches you how examiners think.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Time Management</h3>
+        <p>
+          Practice under timed conditions.
+          Also: get a smooth pen and train your hand stamina.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Sociological Vocabulary</h3>
+        <p>
+          Use subject-specific terminology consistently.
+          It makes your answers sound far more analytical.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="quote">
+      <p>
+        “There aren't enough sociology students in the world. People genuinely do not realise how amazing this subject is.”
+      </p>
+    </div>
+  </div>
+</section>
 
 <footer>
-  <p>IGCSE Sociology Mega Guide — Built for students, by students. Last updated: May 2026.</p>
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <div>
+        <h4>About</h4>
+        <p>
+          A student-made Sociology resource hub designed to help future students survive the subject a little more easily.
+        </p>
+      </div>
+
+      <div>
+        <h4>Useful Links</h4>
+        <p><a href="https://www.cambridgeinternational.org" target="_blank">Cambridge International</a></p>
+        <p><a href="https://papers.gceguide.com" target="_blank">GCE Guide</a></p>
+        <p><a href="https://www.reddit.com/r/IGCSE" target="_blank">r/IGCSE</a></p>
+      </div>
+
+      <div>
+        <h4>Created By</h4>
+        <p>Mr_Meteora</p>
+        <p>For the Sociology students ✊</p>
+      </div>
+
+    </div>
+
+    <div class="small">
+      © 2025 Mr_Meteora — Educational purposes only. This website is not affiliated with Cambridge Assessment International Education.
+    </div>
+
+  </div>
 </footer>
 
 </body>
