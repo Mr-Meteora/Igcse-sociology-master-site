@@ -1,28 +1,22 @@
-# Final `index.html` Replacement
 
-Copy EVERYTHING below and replace your current `index.html` with it.
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IGCSE Sociology — Mega Guide</title>
+<title>IGCSE Sociology Mega Guide</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root{
   --navy:#081826;
-  --navy-2:#10263B;
-  --card:#132D46;
-  --teal:#17BEBB;
-  --teal-soft:#1f6f73;
-  --gold:#D4AF37;
-  --gold-soft:#8d7323;
-  --text:#F4F8FB;
-  --muted:#A6C0D4;
-  --border:#214968;
+  --navy2:#10263B;
+  --card:#14314d;
+  --teal:#18b6b2;
+  --gold:#d4af37;
+  --text:#f4f7fb;
+  --muted:#aac0d2;
+  --border:#244c69;
 }
 
 *{
@@ -31,12 +25,8 @@ Copy EVERYTHING below and replace your current `index.html` with it.
   box-sizing:border-box;
 }
 
-html{
-  scroll-behavior:smooth;
-}
-
 body{
-  background:linear-gradient(180deg,var(--navy) 0%, #0D2134 100%);
+  background:linear-gradient(180deg,var(--navy),#0f2235);
   color:var(--text);
   font-family:'Inter',sans-serif;
   line-height:1.8;
@@ -59,19 +49,18 @@ header{
 
 .badge{
   display:inline-block;
-  padding:.45rem .9rem;
-  border:1px solid var(--teal-soft);
+  padding:.45rem 1rem;
+  border:1px solid rgba(24,182,178,.5);
   border-radius:999px;
   color:var(--teal);
-  font-size:.85rem;
   margin-bottom:1.5rem;
-  background:rgba(23,190,187,.08);
+  background:rgba(24,182,178,.08);
 }
 
 h1{
   font-family:'Playfair Display',serif;
-  font-size:clamp(2.4rem,6vw,5rem);
-  line-height:1.1;
+  font-size:clamp(2.8rem,7vw,5.5rem);
+  line-height:1.08;
   margin-bottom:1.5rem;
 }
 
@@ -79,30 +68,10 @@ h1 span{
   color:var(--gold);
 }
 
-.hero-text{
-  max-width:760px;
+.hero{
+  max-width:850px;
   color:var(--muted);
   font-size:1.08rem;
-}
-
-.hero-boxes{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:1rem;
-  margin-top:2.5rem;
-}
-
-.hero-card{
-  background:rgba(19,45,70,.8);
-  border:1px solid var(--border);
-  padding:1.2rem;
-  border-radius:18px;
-  backdrop-filter:blur(6px);
-}
-
-.hero-card h3{
-  color:var(--gold);
-  margin-bottom:.5rem;
 }
 
 section{
@@ -111,8 +80,8 @@ section{
 
 .section-title{
   font-family:'Playfair Display',serif;
-  font-size:2.1rem;
-  margin-bottom:1rem;
+  font-size:2.3rem;
+  margin-bottom:.8rem;
 }
 
 .section-sub{
@@ -122,15 +91,15 @@ section{
 
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:1.3rem;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:1.4rem;
 }
 
 .card{
-  background:rgba(19,45,70,.88);
+  background:rgba(20,49,77,.92);
   border:1px solid var(--border);
-  border-radius:18px;
-  padding:1.5rem;
+  border-radius:20px;
+  padding:1.6rem;
   transition:.25s ease;
 }
 
@@ -142,7 +111,7 @@ section{
 .card h3{
   color:var(--gold);
   margin-bottom:.8rem;
-  font-size:1.15rem;
+  font-size:1.2rem;
 }
 
 .card p,
@@ -156,8 +125,8 @@ section{
 
 .links a{
   display:block;
-  margin:.55rem 0;
   color:var(--teal);
+  margin:.55rem 0;
   text-decoration:none;
   word-break:break-word;
 }
@@ -171,12 +140,12 @@ section{
   padding:2rem;
   border-left:4px solid var(--gold);
   background:rgba(255,255,255,.03);
-  border-radius:0 18px 18px 0;
+  border-radius:0 20px 20px 0;
 }
 
 .quote p{
-  font-size:1.08rem;
   color:var(--muted);
+  font-size:1.05rem;
 }
 
 footer{
@@ -184,42 +153,26 @@ footer{
   border-top:1px solid var(--border);
 }
 
-.footer-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:2rem;
-}
-
-footer h4{
-  color:var(--gold);
-  margin-bottom:1rem;
-}
-
-footer p,
-footer a{
+.footer-text{
   color:var(--muted);
-  text-decoration:none;
-}
-
-footer a:hover{
-  color:var(--teal);
+  line-height:1.9;
 }
 
 .small{
   margin-top:2rem;
-  color:#7fa1ba;
-  font-size:.9rem;
-  border-top:1px solid var(--border);
   padding-top:1.5rem;
+  border-top:1px solid var(--border);
+  color:#86a1b7;
+  font-size:.9rem;
 }
 
 @media(max-width:700px){
   h1{
-    font-size:2.7rem;
+    font-size:3rem;
   }
 
   .section-title{
-    font-size:1.8rem;
+    font-size:1.9rem;
   }
 }
 </style>
@@ -230,6 +183,7 @@ footer a:hover{
 
 <header>
   <div class="container">
+
     <div class="badge">Cambridge IGCSE Sociology 0495</div>
 
     <h1>
@@ -237,41 +191,32 @@ footer a:hover{
       surviving Sociology.
     </h1>
 
-    <p class="hero-text">
-      Hey, fellow sociology students 👋
-      I've been collecting resources and advice for Sociology for a while now and decided to dump it all here instead of gatekeeping it.
-      Whether you just opened the syllabus for the first time or you're three days from the exam fuelled entirely by caffeine and regret — I hope there's something here for you.
+    <p class="hero">
+      Hey, fellow sociology students! 👋 I've been collecting resources and advice for Sociology for a while now and decided to dump it all here instead of gatekeeping it.
+      Whether you just opened the syllabus for the first time or you're three days from the exam, fuelled by endless white monsters — I hope there's something here for you.
+      <br><br>
+      I'm on the Cambridge 0495 syllabus. (Note that this is identical to the O-Level syllabus)
+      But for Edexcel or AQA, most stuff applies broadly, but always double-check with your own spec because boards love to be different just to annoy tf outta us.
     </p>
 
-    <div class="hero-boxes">
-      <div class="hero-card">
-        <h3>📘 Cambridge 0495</h3>
-        <p>Built mainly around the Cambridge IGCSE Sociology syllabus.</p>
-      </div>
-
-      <div class="hero-card">
-        <h3>🧠 Student-Made</h3>
-        <p>Actually written by a student who suffered through the subject.</p>
-      </div>
-
-      <div class="hero-card">
-        <h3>🚀 Constantly Growing</h3>
-        <p>Add your own notes, resources and techniques as you go.</p>
-      </div>
-    </div>
   </div>
 </header>
 
 <section>
   <div class="container">
-    <h2 class="section-title">📖 Syllabus & Core Resources</h2>
+
+    <h2 class="section-title">📖 Syllabus + Core Resources</h2>
     <p class="section-sub">aka “things I wish I had on day one”</p>
 
     <div class="grid">
 
       <div class="card links">
         <h3>Official Syllabus</h3>
-        <p>Print it. Highlight it. Sleep with it under your pillow.</p>
+        <p>
+          I cannot stress this enough. Print it. Highlight it. Sleep with it under your pillow.
+          Everything the examiner can ask you is in here.
+        </p>
+
         <a href="https://www.cambridgeinternational.org/Images/662464-2025-2027-syllabus.pdf" target="_blank">
           Cambridge 0495 Syllabus
         </a>
@@ -280,163 +225,237 @@ footer a:hover{
       <div class="card">
         <h3>📚 Textbook</h3>
         <p>
-          <strong>Sociology for Cambridge IGCSE</strong> by Jonathan Blundell.
-          This is basically the holy grail. Devour it completely.
+          Sociology for Cambridge IGCSE by Jonathan Blundell:
+          this is thy holy grail. Devour it, consume it completely.
+          If you have everything in here covered, nothing can stop thee.
         </p>
       </div>
 
       <div class="card">
         <h3>📝 Past Papers</h3>
+
         <ul>
-          <li>Do all of them.</li>
-          <li>2025 papers are adapted to the new syllabus.</li>
-          <li>2020+ papers are still extremely useful.</li>
+          <li>Do them. All of them. Yes, even the old ones.</li>
+          <li>The ones from 2025 are adapted to the new syllabus.</li>
+          <li>The ones from 2020 are safe to use since the content is basically the same.</li>
         </ul>
       </div>
 
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <div class="container">
+
+    <h2 class="section-title">📓 Revision Notes</h2>
+    <p class="section-sub">the stuff carrying sociology students globally</p>
+
+    <div class="grid">
+
       <div class="card links">
-        <h3>⭐ Revision Notes</h3>
+        <h3>ZNotes</h3>
+
+        <p>
+          Well explained, concise, complete and well-formatted.
+          Totally not over-glazing them cuz I made them 💀🤫
+        </p>
 
         <a href="https://znotes.org/caie/igcse/sociology-0495/" target="_blank">
-          ZNotes Sociology
-        </a>
-
-        <a href="https://docs.google.com/document/d/1Zy7vT92uBJVJKDyoiYEboAc-i11hT1WyBgEfMOxnAco/edit?tab=t.70twm2nf1v67" target="_blank">
-          Zizi's Notes
-        </a>
-
-        <a href="https://www.notion.so/srishtis/Sociology-IGCSE-34cfcec1b9c64e80b3ba8b2e7bf45dc2?pvs=4" target="_blank">
-          Cheese Notes
-        </a>
-
-        <a href="https://docs.google.com/document/d/1grSsvRvRo2wQXjihby0n95jnQ8fy1DMULtcWLuHZLrs/edit" target="_blank">
-          Sociologists Cheat Sheet
+          Open ZNotes Sociology
         </a>
       </div>
 
       <div class="card links">
-        <h3>🎥 Useful Videos</h3>
+        <h3>Zizi's Notes</h3>
+
+        <p>
+          Made by the GOAT.
+          Extremely well-explained and cohesive.
+        </p>
+
+        <a href="https://docs.google.com/document/d/1Zy7vT92uBJVJKDyoiYEboAc-i11hT1WyBgEfMOxnAco/edit?tab=t.70twm2nf1v67" target="_blank">
+          Open Zizi's Notes
+        </a>
+      </div>
+
+      <div class="card links">
+        <h3>Cheese Notes</h3>
+
+        <p>
+          Really nice notes made by cheeseisloml on Notion.
+        </p>
+
+        <a href="https://www.notion.so/srishtis/Sociology-IGCSE-34cfcec1b9c64e80b3ba8b2e7bf45dc2?pvs=4" target="_blank">
+          Open Cheese Notes
+        </a>
+      </div>
+
+      <div class="card links">
+        <h3>Sociologists Cheat Sheet</h3>
+
+        <p>
+          Some random but VERY useful doc on sociologists' names and theories.
+        </p>
+
+        <a href="https://docs.google.com/document/d/1grSsvRvRo2wQXjihby0n95jnQ8fy1DMULtcWLuHZLrs/edit" target="_blank">
+          Open Cheat Sheet
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <div class="container">
+
+    <h2 class="section-title">🎥 YouTube Channels + Misc Resources</h2>
+    <p class="section-sub">random gems I found useful</p>
+
+    <div class="grid">
+
+      <div class="card links">
+        <h3>Useful Videos</h3>
 
         <a href="https://www.youtube.com/watch?v=QkQyJYu-dhk" target="_blank">
           GCSE Guide Sociology Video
         </a>
 
         <a href="https://www.youtube.com/watch?v=rnInyQLQX-s" target="_blank">
-          r/IGCSE Study Session
+          r/IGCSE P1 Study Session
         </a>
       </div>
 
       <div class="card">
-        <h3>🌍 Other Useful Resources</h3>
+        <h3>🌍 Other Useful Stuff</h3>
+
         <ul>
           <li>Crash Course Sociology</li>
           <li>HQ Academy</li>
           <li>Miss Laiba Sociology</li>
+          <li>Your Tutor — Saqlain Shah</li>
           <li>AYLOTI</li>
+          <li>IGCSE Journey</li>
           <li>Quizlet decks</li>
-          <li>r/IGCSE Discord sociology channel</li>
+          <li>r/IGCSE Discord sociology channel pins</li>
         </ul>
       </div>
 
     </div>
+
   </div>
 </section>
 
 <section>
   <div class="container">
-    <h2 class="section-title">🧠 General Study Advice</h2>
+
+    <h2 class="section-title">💡 Tips</h2>
+    <p class="section-sub">how to not lose free marks</p>
+
+    <div class="grid">
+
+      <div class="card">
+        <h3>Learn Your Sociologists</h3>
+
+        <p>
+          Examiners absolutely love it when you name-drop theorists correctly.
+          “A sociologist said society is bad” is not what you can simply write.
+          “Durkheim argued that…” is.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>PEEL Paragraphs</h3>
+
+        <p>
+          Point → Evidence → Explanation → Link back to the question.
+          This formula is your GOD.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Definition Questions</h3>
+
+        <p>
+          Short, precise, with an example.
+          The examiner doesn't want an essay.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Mark Your Own Papers</h3>
+
+        <p>
+          With the mark scheme open.
+          It's the fastest way to learn how examiners think and where you're losing marks.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Time Management</h3>
+
+        <p>
+          Practice past papers under timed conditions, get a smooth pen, and train your hand.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Sociological Terms</h3>
+
+        <p>
+          Use and learn specific sociological vocabulary that shows you know what you're talking about.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <div class="container">
+
+    <h2 class="section-title">🧠 Advice</h2>
     <p class="section-sub">aka “what actually works”</p>
 
     <div class="grid">
 
       <div class="card">
         <h3>Active Recall</h3>
+
         <p>
-          Highlighting notes in four colours and calling it studying is not studying.
-          Close the book. Test yourself. Say it out loud.
+          Highlighting your notes in four different colours and calling it “studying” is not studying.
+          Test yourself. Close the book. Say it out loud.
         </p>
       </div>
 
       <div class="card">
         <h3>Spaced Repetition</h3>
+
         <p>
-          Review concepts before you forget them instead of cramming the night before.
-          Anki is genuinely amazing for this.
+          Apps like Anki are built for this.
+          Review things just before you'd forget them instead of cramming.
         </p>
       </div>
 
       <div class="card">
-        <h3>Past Papers Early</h3>
+        <h3>Past Papers From Day One</h3>
+
         <p>
-          Learn the exam format early.
-          Understanding how to answer the questions is half the battle.
+          The exam has a format.
+          Get familiar with it early so it doesn't surprise you.
         </p>
       </div>
 
       <div class="card">
         <h3>Teach Someone Else</h3>
+
         <p>
-          If you can explain a concept to another person, you actually understand it.
-          Feynman technique for the win.
-        </p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <h2 class="section-title">💡 Sociology Exam Technique</h2>
-    <p class="section-sub">aka “how to stop losing easy marks”</p>
-
-    <div class="grid">
-
-      <div class="card">
-        <h3>Learn Sociologists</h3>
-        <p>
-          Name-dropping theorists properly matters.
-          “Durkheim argued that…” sounds far stronger than “a sociologist said…”.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>PEEL Paragraphs</h3>
-        <p>
-          Point → Evidence → Explanation → Link.
-          This structure is unbelievably reliable for extended answers.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Definition Questions</h3>
-        <p>
-          Short. Precise. One example.
-          The examiner does not want your autobiography.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Mark Your Own Papers</h3>
-        <p>
-          Use the mark scheme every single time.
-          It teaches you how examiners think.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Time Management</h3>
-        <p>
-          Practice under timed conditions.
-          Also: get a smooth pen and train your hand stamina.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Sociological Vocabulary</h3>
-        <p>
-          Use subject-specific terminology consistently.
-          It makes your answers sound far more analytical.
+          If you can explain a concept to a friend or your cat, you actually understand it.
+          Feynman technique for the W.
         </p>
       </div>
 
@@ -444,41 +463,28 @@ footer a:hover{
 
     <div class="quote">
       <p>
-        “There aren't enough sociology students in the world. People genuinely do not realise how amazing this subject is.”
+        “There aren't enough sociology students — people genuinely don't know how amazing this subject is.”
       </p>
     </div>
+
   </div>
 </section>
 
 <footer>
   <div class="container">
 
-    <div class="footer-grid">
-
-      <div>
-        <h4>About</h4>
-        <p>
-          A student-made Sociology resource hub designed to help future students survive the subject a little more easily.
-        </p>
-      </div>
-
-      <div>
-        <h4>Useful Links</h4>
-        <p><a href="https://www.cambridgeinternational.org" target="_blank">Cambridge International</a></p>
-        <p><a href="https://papers.gceguide.com" target="_blank">GCE Guide</a></p>
-        <p><a href="https://www.reddit.com/r/IGCSE" target="_blank">r/IGCSE</a></p>
-      </div>
-
-      <div>
-        <h4>Created By</h4>
-        <p>Mr_Meteora</p>
-        <p>For the Sociology students ✊</p>
-      </div>
-
-    </div>
+    <p class="footer-text">
+      That's it from my side! Genuinely hope this helps at least one of you.
+      Drop any questions, resources, or your own tips — the more the better.
+      We are in this together and we will get through it.
+      Good luck everyone 💪
+      <br><br>
+      — Mr_Meteora
+    </p>
 
     <div class="small">
-      © 2025 Mr_Meteora — Educational purposes only. This website is not affiliated with Cambridge Assessment International Education.
+      © 2025 Mr_Meteora — Educational purposes only.
+      Not affiliated with Cambridge Assessment International Education.
     </div>
 
   </div>
@@ -486,3 +492,4 @@ footer a:hover{
 
 </body>
 </html>
+```
