@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="A premium student-made IGCSE Sociology hub for Cambridge 0495 resources, notes, videos, exam tips, and community contributions.">
+  <meta name="description" content="A student-made IGCSE Sociology hub for Cambridge 0495 resources, notes, videos, exam tips, and community contributions.">
   <title>IGCSE Sociology Survival Hub</title>
   <style>
     :root {
@@ -19,1478 +19,251 @@
       --ivory: #f6f2e8;
       --mist: #b9ccda;
       --muted: #88a4b8;
-      --line: rgba(139, 222, 216, 0.2);
-      --glass: rgba(8, 28, 45, 0.7);
-      --glass-strong: rgba(12, 43, 65, 0.84);
-      --shadow: 0 24px 80px rgba(0, 0, 0, 0.38);
+      --line: rgba(139,222,216,0.2);
+      --glass: rgba(8,28,45,0.7);
+      --glass-strong: rgba(12,43,65,0.84);
+      --shadow: 0 24px 80px rgba(0,0,0,0.38);
       --radius: 8px;
       --max: 1180px;
     }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 86px;
-    }
-
-    body {
-      min-height: 100vh;
-      overflow-x: hidden;
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;scroll-padding-top:86px}
+    body{
+      min-height:100vh;overflow-x:hidden;
       background:
-        radial-gradient(circle at 12% 10%, rgba(22, 199, 189, 0.23), transparent 32rem),
-        radial-gradient(circle at 82% 4%, rgba(214, 172, 68, 0.18), transparent 28rem),
-        linear-gradient(180deg, var(--navy-950), var(--navy-900) 42%, #06131f);
-      color: var(--ivory);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.65;
+        radial-gradient(circle at 12% 10%,rgba(22,199,189,0.23),transparent 32rem),
+        radial-gradient(circle at 82% 4%,rgba(214,172,68,0.18),transparent 28rem),
+        linear-gradient(180deg,var(--navy-950),var(--navy-900) 42%,#06131f);
+      color:var(--ivory);
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      line-height:1.65;
     }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -3;
-      pointer-events: none;
-      opacity: 0.38;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-      background-size: 52px 52px;
-      mask-image: linear-gradient(to bottom, black, transparent 88%);
+    body::before{
+      content:"";position:fixed;inset:0;z-index:-3;pointer-events:none;opacity:0.38;
+      background-image:linear-gradient(rgba(255,255,255,0.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);
+      background-size:52px 52px;mask-image:linear-gradient(to bottom,black,transparent 88%);
     }
-
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -2;
-      pointer-events: none;
+    body::after{
+      content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;
       background:
-        linear-gradient(115deg, transparent 0 22%, rgba(22, 199, 189, 0.08) 22% 22.4%, transparent 22.4% 54%, rgba(214, 172, 68, 0.08) 54% 54.3%, transparent 54.3%),
-        radial-gradient(circle at 50% 120%, rgba(22, 199, 189, 0.15), transparent 45rem);
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .skip-link {
-      position: fixed;
-      top: 12px;
-      left: 12px;
-      z-index: 100;
-      padding: 0.7rem 1rem;
-      background: var(--gold-500);
-      color: #071827;
-      transform: translateY(-150%);
-      transition: transform 180ms ease;
-    }
-
-    .skip-link:focus {
-      transform: translateY(0);
-    }
-
-    .nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 50;
-      border-bottom: 1px solid rgba(127, 243, 234, 0.13);
-      background: rgba(5, 16, 29, 0.78);
-      backdrop-filter: blur(22px);
-    }
-
-    .nav__inner {
-      width: min(var(--max), calc(100% - 32px));
-      min-height: 72px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.7rem;
-      min-width: max-content;
-      font-weight: 800;
-      letter-spacing: 0;
-    }
-
-    .brand__mark {
-      width: 50px;
-      height: 36px;
-      display: grid;
-      place-items: center;
-      border: 1px solid rgba(241, 214, 130, 0.38);
-      border-radius: 6px;
-      background:
-        linear-gradient(135deg, rgba(22, 199, 189, 0.24), rgba(214, 172, 68, 0.15)),
-        rgba(255,255,255,0.04);
-      color: var(--gold-300);
-      font-size: 0.95rem;
-      box-shadow: 0 0 28px rgba(22, 199, 189, 0.2);
-    }
-
-    .nav__links {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      gap: 0.36rem;
-      flex-wrap: wrap;
-    }
-
-    .nav__links a {
-      border: 1px solid transparent;
-      border-radius: 999px;
-      padding: 0.44rem 0.72rem;
-      color: var(--mist);
-      font-size: 0.82rem;
-      font-weight: 700;
-      transition: color 180ms ease, border-color 180ms ease, background 180ms ease, transform 180ms ease;
-    }
-
-    .nav__links a:hover,
-    .nav__links a.active {
-      color: var(--ivory);
-      border-color: rgba(22, 199, 189, 0.42);
-      background: rgba(22, 199, 189, 0.1);
-      transform: translateY(-1px);
-    }
-
-    .menu-toggle {
-      display: none;
-      width: 42px;
-      height: 42px;
-      border: 1px solid rgba(127, 243, 234, 0.26);
-      border-radius: 999px;
-      background: rgba(255,255,255,0.04);
-      color: var(--ivory);
-      cursor: pointer;
-    }
-
-    .menu-toggle span {
-      display: block;
-      width: 17px;
-      height: 2px;
-      margin: 4px auto;
-      background: currentColor;
-    }
-
-    .wrap {
-      width: min(var(--max), calc(100% - 32px));
-      margin: 0 auto;
-    }
-
-    .section {
-      position: relative;
-      padding: clamp(4.8rem, 9vw, 8rem) 0;
-      isolation: isolate;
-    }
-
-    .section + .section {
-      border-top: 1px solid rgba(127, 243, 234, 0.1);
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.55rem;
-      margin-bottom: 1rem;
-      color: var(--teal-300);
-      font-size: 0.78rem;
-      font-weight: 900;
-      text-transform: uppercase;
-    }
-
-    .eyebrow::before {
-      content: "";
-      width: 34px;
-      height: 1px;
-      background: linear-gradient(90deg, var(--teal-400), var(--gold-300));
-    }
-
-    h1,
-    h2,
-    h3 {
-      line-height: 1.04;
-      letter-spacing: 0;
-    }
-
-    h1,
-    h2 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-weight: 600;
-    }
-
-    h1 {
-      max-width: 980px;
-      font-size: clamp(4.1rem, 11vw, 9.8rem);
-    }
-
-    h2 {
-      max-width: 850px;
-      margin-bottom: 1rem;
-      font-size: clamp(2.4rem, 5vw, 5rem);
-    }
-
-    h3 {
-      font-size: 1.08rem;
-    }
-
-    p {
-      color: var(--mist);
-    }
-
-    .hero {
-      min-height: 100svh;
-      display: flex;
-      align-items: center;
-      padding: 8.2rem 0 5rem;
-      overflow: hidden;
-    }
-
-    .hero__grid {
-      position: relative;
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(290px, 0.55fr);
-      gap: clamp(2rem, 5vw, 5rem);
-      align-items: center;
-    }
-
-    .hero__title span {
-      color: transparent;
-      background: linear-gradient(95deg, var(--teal-300), var(--gold-300) 60%, var(--ivory));
-      -webkit-background-clip: text;
-      background-clip: text;
-      filter: drop-shadow(0 0 24px rgba(22, 199, 189, 0.28));
-    }
-
-    .hero__statement {
-      margin: 1.35rem 0 1.7rem;
-      color: var(--ivory);
-      font-size: clamp(1.15rem, 2vw, 1.45rem);
-      font-weight: 800;
-    }
-
-    .hero__copy {
-      max-width: 740px;
-      font-size: 1.02rem;
-    }
-
-    .hero__actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.74rem;
-      margin-top: 2.2rem;
-    }
-
-    .hero-stats {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 0.7rem;
-      max-width: 700px;
-      margin-top: 1.45rem;
-    }
-
-    .hero-stat {
-      border: 1px solid rgba(127, 243, 234, 0.18);
-      border-radius: var(--radius);
-      padding: 0.8rem;
-      background: rgba(255,255,255,0.045);
-    }
-
-    .hero-stat strong {
-      display: block;
-      color: var(--gold-300);
-      font-size: 1.4rem;
-      line-height: 1;
-    }
-
-    .hero-stat span {
-      display: block;
-      margin-top: 0.35rem;
-      color: var(--muted);
-      font-size: 0.76rem;
-      font-weight: 850;
-      text-transform: uppercase;
-    }
-
-    .pill,
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.48rem;
-      border-radius: 999px;
-      min-height: 44px;
-      padding: 0.72rem 1rem;
-      font-weight: 850;
-      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
-    }
-
-    .pill {
-      border: 1px solid rgba(127, 243, 234, 0.23);
-      background: rgba(255,255,255,0.045);
-      color: var(--mist);
-    }
-
-    .pill:hover {
-      transform: translateY(-2px);
-      border-color: rgba(241, 214, 130, 0.5);
-      background: rgba(22, 199, 189, 0.1);
-      color: var(--ivory);
-    }
-
-    .button {
-      border: 1px solid rgba(241, 214, 130, 0.42);
-      background: linear-gradient(135deg, rgba(22, 199, 189, 0.28), rgba(214, 172, 68, 0.32));
-      color: var(--ivory);
-      box-shadow: 0 0 34px rgba(22, 199, 189, 0.18);
-    }
-
-    .button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 44px rgba(214, 172, 68, 0.22);
-    }
-
-    .hero__artifact {
-      position: relative;
-      min-height: 520px;
-      perspective: 1000px;
-    }
-
-    .artifact-card {
-      position: absolute;
-      inset: 38px 0 auto auto;
-      width: min(390px, 100%);
-      border: 1px solid rgba(127, 243, 234, 0.26);
-      border-radius: var(--radius);
-      padding: 1.2rem;
-      background:
-        linear-gradient(160deg, rgba(22, 199, 189, 0.13), rgba(214, 172, 68, 0.08)),
-        rgba(7, 24, 39, 0.8);
-      box-shadow: var(--shadow), 0 0 70px rgba(22, 199, 189, 0.16);
-      transform: rotateY(-8deg) rotateX(5deg);
-      backdrop-filter: blur(20px);
-      animation: drift 8s ease-in-out infinite;
-    }
-
-    .artifact-card:nth-child(2) {
-      inset: 210px auto auto 14px;
-      width: min(305px, 82%);
-      animation-delay: -2.4s;
-      border-color: rgba(241, 214, 130, 0.3);
-      transform: rotateY(8deg) rotateX(4deg);
-    }
-
-    .artifact-card:nth-child(3) {
-      inset: auto 20px 18px auto;
-      width: min(270px, 78%);
-      animation-delay: -4.5s;
-      transform: rotateZ(-2deg);
-    }
-
-    .artifact-kicker {
-      color: var(--teal-300);
-      font-size: 0.74rem;
-      font-weight: 900;
-      text-transform: uppercase;
-    }
-
-    .artifact-card strong {
-      display: block;
-      margin: 0.3rem 0 0.45rem;
-      color: var(--ivory);
-      font-size: 1.1rem;
-    }
-
-    .meter {
-      display: grid;
-      gap: 0.5rem;
-      margin-top: 1rem;
-    }
-
-    .meter span {
-      display: block;
-      height: 7px;
-      overflow: hidden;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.08);
-    }
-
-    .meter span::after {
-      content: "";
-      display: block;
-      width: var(--w);
-      height: 100%;
-      background: linear-gradient(90deg, var(--teal-400), var(--gold-300));
-      box-shadow: 0 0 16px rgba(22, 199, 189, 0.45);
-    }
-
-    .meter-labels {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 0.7rem;
-      margin-top: 0.55rem;
-      color: var(--muted);
-      font-size: 0.76rem;
-      font-weight: 850;
-      text-transform: uppercase;
-    }
-
-    .survival-map {
-      margin-top: -2rem;
-      padding: 0 0 clamp(4rem, 7vw, 6rem);
-      position: relative;
-      z-index: 2;
-    }
-
-    .map-panel {
-      border: 1px solid rgba(127, 243, 234, 0.22);
-      border-radius: var(--radius);
-      padding: clamp(1rem, 3vw, 1.4rem);
-      background:
-        linear-gradient(135deg, rgba(22, 199, 189, 0.15), rgba(214, 172, 68, 0.08)),
-        rgba(5, 16, 29, 0.82);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(18px);
-    }
-
-    .map-header {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 1rem;
-      margin-bottom: 1rem;
-    }
-
-    .map-header h2 {
-      margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: clamp(1.2rem, 2.3vw, 1.8rem);
-      font-weight: 900;
-    }
-
-    .map-header p {
-      max-width: 440px;
-      font-size: 0.9rem;
-      text-align: right;
-    }
-
-    .map-track {
-      display: grid;
-      grid-template-columns: repeat(6, minmax(0, 1fr));
-      gap: 0.65rem;
-      position: relative;
-    }
-
-    .map-step {
-      position: relative;
-      min-height: 118px;
-      border: 1px solid rgba(127, 243, 234, 0.18);
-      border-radius: var(--radius);
-      padding: 0.85rem;
-      background: rgba(255,255,255,0.04);
-      overflow: hidden;
-      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
-    }
-
-    .map-step::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(22, 199, 189, 0.14), transparent 52%, rgba(214, 172, 68, 0.12));
-      opacity: 0;
-      transition: opacity 180ms ease;
-    }
-
-    .map-step:hover {
-      transform: translateY(-4px);
-      border-color: rgba(241, 214, 130, 0.36);
-      background: rgba(22, 199, 189, 0.08);
-    }
-
-    .map-step:hover::before {
-      opacity: 1;
-    }
-
-    .map-step small,
-    .map-step strong,
-    .map-step span {
-      position: relative;
-    }
-
-    .map-step small {
-      color: var(--teal-300);
-      font-weight: 950;
-      text-transform: uppercase;
-    }
-
-    .map-step strong {
-      display: block;
-      margin: 0.55rem 0 0.35rem;
-      color: var(--ivory);
-      font-size: 0.98rem;
-      line-height: 1.2;
-    }
-
-    .map-step span {
-      color: var(--muted);
-      font-size: 0.82rem;
-      line-height: 1.35;
-    }
-
-    .command-center {
-      background:
-        radial-gradient(circle at 15% 20%, rgba(22, 199, 189, 0.14), transparent 28rem),
-        radial-gradient(circle at 86% 8%, rgba(214, 172, 68, 0.1), transparent 25rem),
-        rgba(255,255,255,0.012);
-    }
-
-    .command-grid {
-      display: grid;
-      grid-template-columns: minmax(280px, 0.82fr) minmax(0, 1.18fr);
-      gap: 1rem;
-      align-items: start;
-    }
-
-    .exam-brief {
-      border: 1px solid rgba(241, 214, 130, 0.28);
-      border-radius: var(--radius);
-      padding: 1.25rem;
-      background:
-        linear-gradient(145deg, rgba(214, 172, 68, 0.13), rgba(22, 199, 189, 0.08)),
-        var(--glass);
-      box-shadow: var(--shadow);
-    }
-
-    .exam-brief h3,
-    .study-card h3 {
-      margin: 0.75rem 0 0.65rem;
-      color: var(--ivory);
-      font-size: 1.25rem;
-    }
-
-    .paper-stack {
-      display: grid;
-      gap: 0.75rem;
-      margin-top: 1rem;
-    }
-
-    .paper-card {
-      border: 1px solid rgba(127, 243, 234, 0.17);
-      border-radius: var(--radius);
-      padding: 0.9rem;
-      background: rgba(255,255,255,0.045);
-    }
-
-    .paper-card strong {
-      color: var(--gold-300);
-    }
-
-    .paper-card ul,
-    .checklist,
-    .mini-list {
-      margin-top: 0.65rem;
-      padding-left: 1.05rem;
-      color: var(--mist);
-    }
-
-    .paper-card li,
-    .checklist li,
-    .mini-list li {
-      margin: 0.35rem 0;
-    }
-
-    .tool-search {
-      display: flex;
-      gap: 0.7rem;
-      align-items: center;
-      margin-bottom: 1rem;
-      border: 1px solid rgba(127, 243, 234, 0.18);
-      border-radius: var(--radius);
-      padding: 0.75rem;
-      background: rgba(255,255,255,0.045);
-    }
-
-    .tool-search label {
-      color: var(--gold-300);
-      font-weight: 950;
-      white-space: nowrap;
-    }
-
-    .tool-search input {
-      width: 100%;
-      border: 1px solid rgba(127, 243, 234, 0.2);
-      border-radius: 999px;
-      padding: 0.75rem 1rem;
-      background: rgba(5, 16, 29, 0.72);
-      color: var(--ivory);
-      outline: none;
-    }
-
-    .tool-search input:focus {
-      border-color: rgba(241, 214, 130, 0.48);
-      box-shadow: 0 0 0 3px rgba(214, 172, 68, 0.1);
-    }
-
-    .tool-search .clear-search {
-      border: 1px solid rgba(241, 214, 130, 0.28);
-      border-radius: 999px;
-      padding: 0.7rem 0.9rem;
-      background: rgba(214, 172, 68, 0.08);
-      color: var(--gold-300);
-      cursor: pointer;
-      font-weight: 900;
-    }
-
-    .study-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.85rem;
-    }
-
-    .study-card {
-      border: 1px solid rgba(127, 243, 234, 0.16);
-      border-radius: var(--radius);
-      padding: 1rem;
-      background: rgba(255,255,255,0.045);
-      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
-    }
-
-    .study-card:hover {
-      transform: translateY(-3px);
-      border-color: rgba(22, 199, 189, 0.38);
-      background: rgba(22, 199, 189, 0.07);
-    }
-
-    .study-card.wide {
-      grid-column: 1 / -1;
-    }
-
-    .topic-matrix {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.55rem;
-      margin-top: 0.85rem;
-    }
-
-    .topic-pill {
-      border: 1px solid rgba(127, 243, 234, 0.16);
-      border-radius: var(--radius);
-      padding: 0.7rem;
-      background: rgba(5, 16, 29, 0.5);
-      cursor: pointer;
-      transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
-    }
-
-    .topic-pill:hover {
-      transform: translateY(-2px);
-      border-color: rgba(22, 199, 189, 0.36);
-    }
-
-    .topic-pill input {
-      position: absolute;
-      inline-size: 1px;
-      block-size: 1px;
-      opacity: 0;
-    }
-
-    .topic-pill.done {
-      border-color: rgba(241, 214, 130, 0.38);
-      background: rgba(214, 172, 68, 0.1);
-    }
-
-    .topic-pill.done strong::after {
-      content: " - done";
-      color: var(--gold-300);
-      font-size: 0.76rem;
-      font-weight: 900;
-    }
-
-    .topic-pill strong {
-      display: block;
-      color: var(--ivory);
-      line-height: 1.25;
-    }
-
-    .topic-pill span {
-      color: var(--muted);
-      font-size: 0.78rem;
-      font-weight: 850;
-      text-transform: uppercase;
-    }
-
-    .flashcards {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 0.65rem;
-      margin-top: 0.8rem;
-    }
-
-    .flashcard {
-      min-height: 132px;
-      border: 1px solid rgba(241, 214, 130, 0.22);
-      border-radius: var(--radius);
-      padding: 0.85rem;
-      background:
-        linear-gradient(145deg, rgba(214, 172, 68, 0.11), rgba(22, 199, 189, 0.06)),
-        rgba(5, 16, 29, 0.55);
-    }
-
-    .flashcard strong {
-      color: var(--gold-300);
-    }
-
-    .flashcard span {
-      display: block;
-      margin-top: 0.45rem;
-      color: var(--mist);
-      font-size: 0.88rem;
-    }
-
-    .last-updated {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.55rem;
-      margin-top: 1rem;
-      color: var(--muted);
-      font-size: 0.82rem;
-      font-weight: 850;
-    }
-
-    .progress-bar {
-      height: 9px;
-      overflow: hidden;
-      border-radius: 999px;
-      margin-top: 1rem;
-      background: rgba(255,255,255,0.08);
-    }
-
-    .progress-bar span {
-      display: block;
-      width: var(--progress, 0%);
-      height: 100%;
-      background: linear-gradient(90deg, var(--teal-400), var(--gold-300));
-      transition: width 200ms ease;
-    }
-
-    .progress-copy {
-      margin-top: 0.55rem;
-      color: var(--muted);
-      font-size: 0.86rem;
-      font-weight: 850;
-    }
-
-    .command-list {
-      display: grid;
-      gap: 0.55rem;
-      margin-top: 0.75rem;
-    }
-
-    .command-row {
-      display: grid;
-      grid-template-columns: 120px 1fr;
-      gap: 0.75rem;
-      border-bottom: 1px solid rgba(127, 243, 234, 0.1);
-      padding-bottom: 0.55rem;
-    }
-
-    .command-row strong {
-      color: var(--gold-300);
-    }
-
-    .paper-choice {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 0.6rem;
-      margin-top: 0.8rem;
-    }
-
-    .choice {
-      border: 1px solid rgba(127, 243, 234, 0.18);
-      border-radius: var(--radius);
-      padding: 0.75rem;
-      background: rgba(255,255,255,0.04);
-    }
-
-    .choice strong {
-      color: var(--ivory);
-    }
-
-    .choice span {
-      display: block;
-      margin-top: 0.35rem;
-      color: var(--muted);
-      font-size: 0.84rem;
-    }
-
-    .section__intro {
-      max-width: 700px;
-      margin-bottom: 2.5rem;
-      font-size: 1.04rem;
-    }
-
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      width: fit-content;
-      border: 1px solid rgba(127, 243, 234, 0.22);
-      border-radius: 999px;
-      padding: 0.25rem 0.58rem;
-      color: var(--teal-300);
-      background: rgba(22, 199, 189, 0.075);
-      font-size: 0.72rem;
-      font-weight: 850;
-    }
-
-    .tag.gold {
-      border-color: rgba(241, 214, 130, 0.25);
-      color: var(--gold-300);
-      background: rgba(214, 172, 68, 0.08);
-    }
-
-    .archive-layout {
-      display: grid;
-      grid-template-columns: 0.9fr 1.15fr;
-      gap: 1.4rem;
-      align-items: stretch;
-    }
-
-    .archive-feature {
-      border: 1px solid rgba(241, 214, 130, 0.28);
-      border-radius: var(--radius);
-      padding: clamp(1.4rem, 4vw, 2.4rem);
-      background:
-        linear-gradient(145deg, rgba(214, 172, 68, 0.14), rgba(22, 199, 189, 0.07)),
-        var(--glass);
-      box-shadow: var(--shadow);
-    }
-
-    .archive-feature .stamp {
-      display: inline-flex;
-      margin-bottom: 1.6rem;
-      border: 1px solid rgba(241, 214, 130, 0.38);
-      padding: 0.4rem 0.68rem;
-      color: var(--gold-300);
-      font-weight: 900;
-      text-transform: uppercase;
-      transform: rotate(-2deg);
-    }
-
-    .archive-feature h3 {
-      margin-bottom: 1rem;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(1.9rem, 4vw, 3.5rem);
-    }
-
-    .archive-list {
-      display: grid;
-      gap: 0.9rem;
-    }
-
-    .archive-row {
-      display: grid;
-      grid-template-columns: auto 1fr auto;
-      gap: 1rem;
-      align-items: center;
-      border: 1px solid rgba(127, 243, 234, 0.16);
-      border-radius: var(--radius);
-      padding: 1.1rem;
-      background: rgba(255,255,255,0.045);
-      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
-    }
-
-    .archive-row:hover {
-      transform: translateX(4px);
-      border-color: rgba(22, 199, 189, 0.44);
-      background: rgba(22, 199, 189, 0.075);
-    }
-
-    .number {
-      width: 42px;
-      height: 42px;
-      display: grid;
-      place-items: center;
-      border: 1px solid rgba(241, 214, 130, 0.28);
-      color: var(--gold-300);
-      font-weight: 900;
-    }
-
-    .resource-link {
-      color: var(--ivory);
-      font-weight: 850;
-    }
-
-    .resource-link::after {
-      content: " ->";
-      color: var(--teal-300);
-    }
-
-    .vault {
-      background:
-        linear-gradient(180deg, rgba(22, 199, 189, 0.08), transparent 25%),
-        rgba(255,255,255,0.018);
-    }
-
-    .vault-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      grid-auto-rows: auto;
-      gap: 1rem;
-      align-items: stretch;
-    }
-
-    .vault-card {
-      position: relative;
-      overflow: hidden;
-      border: 1px solid rgba(127, 243, 234, 0.18);
-      border-radius: var(--radius);
-      padding: 1.35rem;
-      background: linear-gradient(145deg, rgba(12, 55, 76, 0.86), rgba(6, 19, 31, 0.72));
-      transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
-    }
-
-    .vault-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background: radial-gradient(circle at 88% 10%, rgba(22, 199, 189, 0.18), transparent 16rem);
-    }
-
-    .vault-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(241, 214, 130, 0.34);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.28);
-    }
-
-    .vault-card.featured {
-      grid-column: span 2;
-      min-height: 0;
-      background:
-        linear-gradient(145deg, rgba(22, 199, 189, 0.18), rgba(214, 172, 68, 0.1)),
-        rgba(5, 16, 29, 0.75);
-    }
-
-    .vault-card h3 {
-      position: relative;
-      margin: 1.1rem 0 0.7rem;
-      color: var(--ivory);
-      font-size: clamp(1.25rem, 2vw, 2rem);
-    }
-
-    .tag-row {
-      position: relative;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.42rem;
-      margin-top: 1.1rem;
-    }
-
-    .media {
-      overflow: hidden;
-    }
-
-    .media-stage {
-      display: grid;
-      grid-template-columns: 360px 1fr;
-      gap: 1.2rem;
-      align-items: stretch;
-    }
-
-    .spotlight {
-      position: sticky;
-      top: 96px;
-      align-self: start;
-      min-height: 500px;
-      border: 1px solid rgba(241, 214, 130, 0.28);
-      border-radius: var(--radius);
-      padding: 1.35rem;
-      background:
-        linear-gradient(180deg, rgba(214, 172, 68, 0.15), rgba(22, 199, 189, 0.12)),
-        var(--glass);
-      box-shadow: var(--shadow);
-    }
-
-    .spotlight__screen {
-      aspect-ratio: 16 / 10;
-      margin-bottom: 1.3rem;
-      border: 1px solid rgba(127, 243, 234, 0.22);
-      border-radius: var(--radius);
-      background:
-        linear-gradient(135deg, rgba(22, 199, 189, 0.28), rgba(214, 172, 68, 0.14)),
-        repeating-linear-gradient(135deg, rgba(255,255,255,0.08) 0 1px, transparent 1px 13px);
-      display: grid;
-      place-items: center;
-      color: var(--ivory);
-      font-size: 3rem;
-      box-shadow: inset 0 0 60px rgba(0,0,0,0.28);
-    }
-
-    .channel-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.9rem;
-    }
-
-    .channel-card {
-      display: grid;
-      grid-template-columns: 92px 1fr;
-      gap: 1rem;
-      min-height: 150px;
-      border: 1px solid rgba(127, 243, 234, 0.16);
-      border-radius: var(--radius);
-      padding: 0.8rem;
-      background: rgba(255,255,255,0.045);
-      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
-    }
-
-    .channel-card:hover {
-      transform: translateY(-3px);
-      background: rgba(22, 199, 189, 0.075);
-      border-color: rgba(22, 199, 189, 0.38);
-    }
-
-    .thumb {
-      display: grid;
-      place-items: center;
-      min-height: 86px;
-      border-radius: calc(var(--radius) - 2px);
-      border: 1px solid rgba(241, 214, 130, 0.2);
-      background:
-        radial-gradient(circle at 20% 18%, rgba(241, 214, 130, 0.28), transparent 40%),
-        linear-gradient(135deg, rgba(22, 199, 189, 0.22), rgba(7, 24, 39, 0.95));
-      color: var(--gold-300);
-      font-size: 1.4rem;
-      font-weight: 950;
-    }
-
-    .channel-card p {
-      margin: 0.45rem 0 0.7rem;
-      font-size: 0.9rem;
-    }
-
-    .watch {
-      display: inline-flex;
-      color: var(--teal-300);
-      font-size: 0.85rem;
-      font-weight: 900;
-    }
-
-    .toolbox {
-      background:
-        linear-gradient(90deg, rgba(214, 172, 68, 0.08), transparent 28%),
-        linear-gradient(270deg, rgba(22, 199, 189, 0.1), transparent 34%);
-    }
-
-    .toolbelt {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      align-items: stretch;
-    }
-
-    .tool {
-      position: relative;
-      min-height: 320px;
-      border: 1px dashed rgba(127, 243, 234, 0.28);
-      border-radius: var(--radius);
-      padding: 1.3rem;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.025)),
-        rgba(9, 28, 43, 0.82);
-    }
-
-    .tool:nth-child(2) {
-      border-style: solid;
-      border-color: rgba(241, 214, 130, 0.25);
-    }
-
-    .tool h3 {
-      margin: 1rem 0 0.8rem;
-      color: var(--gold-300);
-      font-size: 1.32rem;
-    }
-
-    .tool .icon {
-      width: 54px;
-      height: 54px;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      background: rgba(22, 199, 189, 0.12);
-      border: 1px solid rgba(127, 243, 234, 0.28);
-      color: var(--teal-300);
-      font-weight: 950;
-    }
-
-    .tips-board {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.1rem;
-      align-items: start;
-    }
-
-    .warning-panel {
-      display: grid;
-      grid-template-columns: minmax(220px, 0.45fr) 1fr;
-      gap: 1rem;
-      align-items: center;
-      border: 1px solid rgba(241, 214, 130, 0.34);
-      border-radius: var(--radius);
-      padding: 1.4rem;
-      background:
-        linear-gradient(145deg, rgba(214, 172, 68, 0.14), rgba(5, 16, 29, 0.75)),
-        var(--glass);
-      box-shadow: var(--shadow);
-    }
-
-    .warning-panel h3 {
-      margin: 0.7rem 0;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 2.1rem;
-    }
-
-    .tactics {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 0.8rem;
-    }
-
-    .tactic {
-      border: 1px solid rgba(127, 243, 234, 0.16);
-      border-radius: var(--radius);
-      padding: 1rem;
-      background: rgba(255,255,255,0.045);
-      transition: transform 180ms ease, border-color 180ms ease;
-    }
-
-    .tactic:hover {
-      transform: translateY(-3px);
-      border-color: rgba(22, 199, 189, 0.38);
-    }
-
-    .tactic small {
-      display: inline-flex;
-      margin-bottom: 0.65rem;
-      color: var(--gold-300);
-      font-weight: 950;
-      text-transform: uppercase;
-    }
-
-    .advice {
-      background:
-        linear-gradient(180deg, transparent, rgba(22, 199, 189, 0.08) 40%, transparent),
-        rgba(255,255,255,0.012);
-    }
-
-    .letter {
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .letter h2 {
-      margin-bottom: 2rem;
-    }
-
-    .advice-stream {
-      display: grid;
-      gap: 1.7rem;
-      margin-top: 2.4rem;
-    }
-
-    .advice-item {
-      display: grid;
-      grid-template-columns: 150px 1fr;
-      gap: 1.5rem;
-      padding: 0 0 1.7rem;
-      border-bottom: 1px solid rgba(127, 243, 234, 0.14);
-    }
-
-    .advice-item strong {
-      color: var(--gold-300);
-      font-size: 0.9rem;
-      text-transform: uppercase;
-    }
-
-    .closing-quote {
-      margin-top: 3.2rem;
-      border-left: 2px solid var(--gold-300);
-      padding: 0.5rem 0 0.5rem 1.6rem;
-      color: var(--ivory);
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(1.5rem, 3vw, 2.5rem);
-      line-height: 1.2;
-    }
-
-    .contribute {
-      padding-bottom: 5rem;
-    }
-
-    .contribute-panel {
-      display: grid;
-      grid-template-columns: 1fr 0.9fr;
-      gap: 1.2rem;
-      border: 1px solid rgba(127, 243, 234, 0.2);
-      border-radius: var(--radius);
-      padding: clamp(1.2rem, 4vw, 2rem);
-      background:
-        radial-gradient(circle at 0 0, rgba(22, 199, 189, 0.2), transparent 24rem),
-        radial-gradient(circle at 100% 20%, rgba(214, 172, 68, 0.14), transparent 22rem),
-        rgba(5, 16, 29, 0.72);
-      box-shadow: var(--shadow);
-    }
-
-    .contact-grid {
-      display: grid;
-      gap: 0.8rem;
-      align-content: start;
-    }
-
-    .contact-line {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      justify-content: space-between;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: var(--radius);
-      padding: 1rem;
-      background: rgba(255,255,255,0.045);
-    }
-
-    .contact-line span {
-      color: var(--muted);
-      font-weight: 850;
-    }
-
-    .contact-line a,
-    .contact-line b {
-      color: var(--teal-300);
-      word-break: break-word;
-    }
-
-    .footer {
-      border-top: 1px solid rgba(127, 243, 234, 0.14);
-      padding: 2.2rem 0;
-      background: rgba(3, 12, 22, 0.72);
-    }
-
-    .footer__grid {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 1.5rem;
-      align-items: end;
-    }
-
-    .footer small {
-      display: block;
-      color: var(--muted);
-      max-width: 760px;
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(22px);
-      transition: opacity 650ms ease, transform 650ms ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @keyframes drift {
-      0%, 100% {
-        translate: 0 0;
-      }
-      50% {
-        translate: 0 -14px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        scroll-behavior: auto !important;
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-      }
-    }
-
-    @media (max-width: 980px) {
-      .hero__grid,
-      .archive-layout,
-      .command-grid,
-      .vault-grid,
-      .media-stage,
-      .tips-board,
-      .contribute-panel,
-      .footer__grid {
-        grid-template-columns: 1fr;
-      }
-
-      .vault-card.featured {
-        grid-column: auto;
-      }
-
-      .warning-panel {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        min-height: auto;
-      }
-
-      .hero__artifact {
-        min-height: 420px;
-      }
-
-      .spotlight {
-        position: relative;
-        top: 0;
-        min-height: auto;
-      }
-
-      .toolbelt {
-        grid-template-columns: 1fr;
-      }
-
-      .tool:nth-child(2) {
-        transform: none;
-      }
-    }
-
-    @media (max-width: 760px) {
-      .nav__inner {
-        min-height: 66px;
-      }
-
-      .menu-toggle {
-        display: block;
-      }
-
-      .nav__links {
-        position: absolute;
-        top: 66px;
-        left: 16px;
-        right: 16px;
-        display: none;
-        padding: 0.8rem;
-        border: 1px solid rgba(127, 243, 234, 0.16);
-        border-radius: var(--radius);
-        background: rgba(5, 16, 29, 0.96);
-        box-shadow: var(--shadow);
-      }
-
-      .nav.open .nav__links {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .nav__links a {
-        text-align: center;
-      }
-
-      .hero-stats,
-      .map-track {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .map-header {
-        display: block;
-      }
-
-      .map-header p {
-        margin-top: 0.5rem;
-        text-align: left;
-      }
-
-      .hero {
-        padding-top: 7.4rem;
-      }
-
-      h1 {
-        font-size: clamp(3.45rem, 16vw, 5.5rem);
-      }
-
-      .archive-row {
-        grid-template-columns: 1fr;
-      }
-
-      .channel-grid,
-      .study-grid,
-      .topic-matrix,
-      .flashcards,
-      .paper-choice,
-      .tactics {
-        grid-template-columns: 1fr;
-      }
-
-      .channel-card {
-        grid-template-columns: 1fr;
-      }
-
-      .advice-item {
-        grid-template-columns: 1fr;
-        gap: 0.55rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .wrap,
-      .nav__inner {
-        width: min(100% - 22px, var(--max));
-      }
-
-      .hero__actions {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .hero-stats,
-      .map-track {
-        grid-template-columns: 1fr;
-      }
-
-      .pill,
-      .button {
-        width: 100%;
-        padding-inline: 0.65rem;
-        font-size: 0.86rem;
-      }
-
-      .artifact-card,
-      .artifact-card:nth-child(2),
-      .artifact-card:nth-child(3) {
-        position: relative;
-        inset: auto;
-        width: 100%;
-        margin-bottom: 0.8rem;
-        transform: none;
-      }
-
-      .hero__artifact {
-        min-height: auto;
-      }
+        linear-gradient(115deg,transparent 0 22%,rgba(22,199,189,0.08) 22% 22.4%,transparent 22.4% 54%,rgba(214,172,68,0.08) 54% 54.3%,transparent 54.3%),
+        radial-gradient(circle at 50% 120%,rgba(22,199,189,0.15),transparent 45rem);
+    }
+    a{color:inherit;text-decoration:none}
+    .skip-link{position:fixed;top:12px;left:12px;z-index:100;padding:0.7rem 1rem;background:var(--gold-500);color:#071827;transform:translateY(-150%);transition:transform 180ms ease}
+    .skip-link:focus{transform:translateY(0)}
+    .nav{position:fixed;top:0;left:0;right:0;z-index:50;border-bottom:1px solid rgba(127,243,234,0.13);background:rgba(5,16,29,0.78);backdrop-filter:blur(22px)}
+    .nav__inner{width:min(var(--max),calc(100% - 32px));min-height:72px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+    .brand{display:inline-flex;align-items:center;gap:0.7rem;min-width:max-content;font-weight:800}
+    .brand__mark{width:50px;height:36px;display:grid;place-items:center;border:1px solid rgba(241,214,130,0.38);border-radius:6px;background:linear-gradient(135deg,rgba(22,199,189,0.24),rgba(214,172,68,0.15)),rgba(255,255,255,0.04);color:var(--gold-300);font-size:0.95rem;box-shadow:0 0 28px rgba(22,199,189,0.2)}
+    .nav__links{display:flex;align-items:center;justify-content:flex-end;gap:0.36rem;flex-wrap:wrap}
+    .nav__links a{border:1px solid transparent;border-radius:999px;padding:0.44rem 0.72rem;color:var(--mist);font-size:0.82rem;font-weight:700;transition:color 180ms ease,border-color 180ms ease,background 180ms ease,transform 180ms ease}
+    .nav__links a:hover,.nav__links a.active{color:var(--ivory);border-color:rgba(22,199,189,0.42);background:rgba(22,199,189,0.1);transform:translateY(-1px)}
+    .menu-toggle{display:none;width:42px;height:42px;border:1px solid rgba(127,243,234,0.26);border-radius:999px;background:rgba(255,255,255,0.04);color:var(--ivory);cursor:pointer}
+    .menu-toggle span{display:block;width:17px;height:2px;margin:4px auto;background:currentColor}
+    .wrap{width:min(var(--max),calc(100% - 32px));margin:0 auto}
+    .section{position:relative;padding:clamp(4.8rem,9vw,8rem) 0;isolation:isolate}
+    .section+.section{border-top:1px solid rgba(127,243,234,0.1)}
+    .eyebrow{display:inline-flex;align-items:center;gap:0.55rem;margin-bottom:1rem;color:var(--teal-300);font-size:0.78rem;font-weight:900;text-transform:uppercase}
+    .eyebrow::before{content:"";width:34px;height:1px;background:linear-gradient(90deg,var(--teal-400),var(--gold-300))}
+    h1,h2,h3{line-height:1.04;letter-spacing:0}
+    h1,h2{font-family:Georgia,"Times New Roman",serif;font-weight:600}
+    h1{max-width:980px;font-size:clamp(4.1rem,11vw,9.8rem)}
+    h2{max-width:850px;margin-bottom:1rem;font-size:clamp(2.4rem,5vw,5rem)}
+    h3{font-size:1.08rem}
+    p{color:var(--mist)}
+    .hero{min-height:100svh;display:flex;align-items:center;padding:8.2rem 0 5rem;overflow:hidden}
+    .hero__grid{position:relative;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(290px,0.55fr);gap:clamp(2rem,5vw,5rem);align-items:center}
+    .hero__title span{color:transparent;background:linear-gradient(95deg,var(--teal-300),var(--gold-300) 60%,var(--ivory));-webkit-background-clip:text;background-clip:text;filter:drop-shadow(0 0 24px rgba(22,199,189,0.28))}
+    .hero__statement{margin:1.35rem 0 1.7rem;color:var(--ivory);font-size:clamp(1.15rem,2vw,1.45rem);font-weight:800}
+    .hero__copy{max-width:740px;font-size:1.02rem}
+    .hero__actions{display:flex;flex-wrap:wrap;gap:0.74rem;margin-top:2.2rem}
+    .hero-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0.7rem;max-width:700px;margin-top:1.45rem}
+    .hero-stat{border:1px solid rgba(127,243,234,0.18);border-radius:var(--radius);padding:0.8rem;background:rgba(255,255,255,0.045)}
+    .hero-stat strong{display:block;color:var(--gold-300);font-size:1.4rem;line-height:1}
+    .hero-stat span{display:block;margin-top:0.35rem;color:var(--muted);font-size:0.76rem;font-weight:850;text-transform:uppercase}
+    .pill,.button{display:inline-flex;align-items:center;justify-content:center;gap:0.48rem;border-radius:999px;min-height:44px;padding:0.72rem 1rem;font-weight:850;transition:transform 180ms ease,border-color 180ms ease,background 180ms ease,box-shadow 180ms ease}
+    .pill{border:1px solid rgba(127,243,234,0.23);background:rgba(255,255,255,0.045);color:var(--mist)}
+    .pill:hover{transform:translateY(-2px);border-color:rgba(241,214,130,0.5);background:rgba(22,199,189,0.1);color:var(--ivory)}
+    .button{border:1px solid rgba(241,214,130,0.42);background:linear-gradient(135deg,rgba(22,199,189,0.28),rgba(214,172,68,0.32));color:var(--ivory);box-shadow:0 0 34px rgba(22,199,189,0.18)}
+    .button:hover{transform:translateY(-2px);box-shadow:0 0 44px rgba(214,172,68,0.22)}
+    .hero__artifact{position:relative;min-height:460px;perspective:1000px}
+    .artifact-card{position:absolute;inset:38px 0 auto auto;width:min(390px,100%);border:1px solid rgba(127,243,234,0.26);border-radius:var(--radius);padding:1.2rem;background:linear-gradient(160deg,rgba(22,199,189,0.13),rgba(214,172,68,0.08)),rgba(7,24,39,0.8);box-shadow:var(--shadow),0 0 70px rgba(22,199,189,0.16);transform:rotateY(-8deg) rotateX(5deg);backdrop-filter:blur(20px);animation:drift 8s ease-in-out infinite}
+    .artifact-card:nth-child(2){inset:210px auto auto 14px;width:min(305px,82%);animation-delay:-2.4s;border-color:rgba(241,214,130,0.3);transform:rotateY(8deg) rotateX(4deg)}
+    .artifact-card:nth-child(3){inset:auto 20px 18px auto;width:min(270px,78%);animation-delay:-4.5s;transform:rotateZ(-2deg)}
+    .artifact-kicker{color:var(--teal-300);font-size:0.74rem;font-weight:900;text-transform:uppercase}
+    .artifact-card strong{display:block;margin:0.3rem 0 0.45rem;color:var(--ivory);font-size:1.1rem}
+    .survival-map{margin-top:-2rem;padding:0 0 clamp(4rem,7vw,6rem);position:relative;z-index:2}
+    .map-panel{border:1px solid rgba(127,243,234,0.22);border-radius:var(--radius);padding:clamp(1rem,3vw,1.4rem);background:linear-gradient(135deg,rgba(22,199,189,0.15),rgba(214,172,68,0.08)),rgba(5,16,29,0.82);box-shadow:var(--shadow);backdrop-filter:blur(18px)}
+    .map-header{display:flex;align-items:end;justify-content:space-between;gap:1rem;margin-bottom:1rem}
+    .map-header h2{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:clamp(1.2rem,2.3vw,1.8rem);font-weight:900}
+    .map-header p{max-width:440px;font-size:0.9rem;text-align:right}
+    .map-track{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:0.65rem;position:relative}
+    .map-step{position:relative;min-height:118px;border:1px solid rgba(127,243,234,0.18);border-radius:var(--radius);padding:0.85rem;background:rgba(255,255,255,0.04);overflow:hidden;transition:transform 180ms ease,border-color 180ms ease,background 180ms ease}
+    .map-step::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(22,199,189,0.14),transparent 52%,rgba(214,172,68,0.12));opacity:0;transition:opacity 180ms ease}
+    .map-step:hover{transform:translateY(-4px);border-color:rgba(241,214,130,0.36);background:rgba(22,199,189,0.08)}
+    .map-step:hover::before{opacity:1}
+    .map-step small,.map-step strong,.map-step span{position:relative}
+    .map-step small{color:var(--teal-300);font-weight:950;text-transform:uppercase}
+    .map-step strong{display:block;margin:0.55rem 0 0.35rem;color:var(--ivory);font-size:0.98rem;line-height:1.2}
+    .map-step span{color:var(--muted);font-size:0.82rem;line-height:1.35}
+    .command-center{background:radial-gradient(circle at 15% 20%,rgba(22,199,189,0.14),transparent 28rem),radial-gradient(circle at 86% 8%,rgba(214,172,68,0.1),transparent 25rem),rgba(255,255,255,0.012)}
+    .command-grid{display:grid;grid-template-columns:minmax(280px,0.82fr) minmax(0,1.18fr);gap:1rem;align-items:start}
+    .exam-brief{border:1px solid rgba(241,214,130,0.28);border-radius:var(--radius);padding:1.25rem;background:linear-gradient(145deg,rgba(214,172,68,0.13),rgba(22,199,189,0.08)),var(--glass);box-shadow:var(--shadow)}
+    .exam-brief h3,.study-card h3{margin:0.75rem 0 0.65rem;color:var(--ivory);font-size:1.25rem}
+    .paper-stack{display:grid;gap:0.75rem;margin-top:1rem}
+    .paper-card{border:1px solid rgba(127,243,234,0.17);border-radius:var(--radius);padding:0.9rem;background:rgba(255,255,255,0.045)}
+    .paper-card strong{color:var(--gold-300)}
+    .paper-card ul,.checklist,.mini-list{margin-top:0.65rem;padding-left:1.05rem;color:var(--mist)}
+    .paper-card li,.checklist li,.mini-list li{margin:0.35rem 0}
+    .tool-search{display:flex;gap:0.7rem;align-items:center;margin-bottom:1rem;border:1px solid rgba(127,243,234,0.18);border-radius:var(--radius);padding:0.75rem;background:rgba(255,255,255,0.045)}
+    .tool-search label{color:var(--gold-300);font-weight:950;white-space:nowrap}
+    .tool-search input{width:100%;border:1px solid rgba(127,243,234,0.2);border-radius:999px;padding:0.75rem 1rem;background:rgba(5,16,29,0.72);color:var(--ivory);outline:none}
+    .tool-search input:focus{border-color:rgba(241,214,130,0.48);box-shadow:0 0 0 3px rgba(214,172,68,0.1)}
+    .tool-search .clear-search{border:1px solid rgba(241,214,130,0.28);border-radius:999px;padding:0.7rem 0.9rem;background:rgba(214,172,68,0.08);color:var(--gold-300);cursor:pointer;font-weight:900}
+    .study-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0.85rem}
+    .study-card{border:1px solid rgba(127,243,234,0.16);border-radius:var(--radius);padding:1rem;background:rgba(255,255,255,0.045);transition:transform 180ms ease,border-color 180ms ease,background 180ms ease}
+    .study-card:hover{transform:translateY(-3px);border-color:rgba(22,199,189,0.38);background:rgba(22,199,189,0.07)}
+    .study-card.wide{grid-column:1/-1}
+    .topic-matrix{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0.55rem;margin-top:0.85rem}
+    .topic-pill{border:1px solid rgba(127,243,234,0.16);border-radius:var(--radius);padding:0.7rem;background:rgba(5,16,29,0.5);cursor:pointer;transition:border-color 180ms ease,background 180ms ease,transform 180ms ease}
+    .topic-pill:hover{transform:translateY(-2px);border-color:rgba(22,199,189,0.36)}
+    .topic-pill input{position:absolute;inline-size:1px;block-size:1px;opacity:0}
+    .topic-pill.done{border-color:rgba(241,214,130,0.38);background:rgba(214,172,68,0.1)}
+    .topic-pill.done strong::after{content:" ✓";color:var(--gold-300);font-size:0.76rem;font-weight:900}
+    .topic-pill strong{display:block;color:var(--ivory);line-height:1.25}
+    .topic-pill span{color:var(--muted);font-size:0.78rem;font-weight:850;text-transform:uppercase}
+    .flashcards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0.65rem;margin-top:0.8rem}
+    .flashcard{min-height:132px;cursor:pointer;perspective:600px}
+    .flashcard-inner{position:relative;width:100%;height:100%;min-height:132px;transform-style:preserve-3d;transition:transform 400ms ease}
+    .flashcard.flipped .flashcard-inner{transform:rotateY(180deg)}
+    .flashcard-front,.flashcard-back{position:absolute;inset:0;border-radius:var(--radius);padding:0.85rem;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+    .flashcard-front{border:1px solid rgba(241,214,130,0.22);background:linear-gradient(145deg,rgba(214,172,68,0.11),rgba(22,199,189,0.06)),rgba(5,16,29,0.55);display:flex;flex-direction:column;justify-content:space-between}
+    .flashcard-back{border:1px solid rgba(22,199,189,0.3);background:linear-gradient(145deg,rgba(22,199,189,0.14),rgba(214,172,68,0.06)),rgba(5,16,29,0.7);transform:rotateY(180deg);display:flex;align-items:center;justify-content:center}
+    .flashcard-front strong{color:var(--gold-300);font-size:1rem}
+    .flashcard-front .flip-hint{color:var(--muted);font-size:0.72rem;margin-top:0.5rem}
+    .flashcard-back span{color:var(--mist);font-size:0.88rem;text-align:center;line-height:1.5}
+    .last-updated{display:inline-flex;align-items:center;gap:0.55rem;margin-top:1rem;color:var(--muted);font-size:0.82rem;font-weight:850}
+    .progress-bar{height:9px;overflow:hidden;border-radius:999px;margin-top:1rem;background:rgba(255,255,255,0.08)}
+    .progress-bar span{display:block;width:var(--progress,0%);height:100%;background:linear-gradient(90deg,var(--teal-400),var(--gold-300));transition:width 400ms cubic-bezier(.4,0,.2,1)}
+    .progress-copy{margin-top:0.55rem;color:var(--muted);font-size:0.86rem;font-weight:850}
+    .command-list{display:grid;gap:0.55rem;margin-top:0.75rem}
+    .command-row{display:grid;grid-template-columns:120px 1fr;gap:0.75rem;border-bottom:1px solid rgba(127,243,234,0.1);padding-bottom:0.55rem}
+    .command-row strong{color:var(--gold-300)}
+    .paper-choice{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0.6rem;margin-top:0.8rem}
+    .choice{border:1px solid rgba(127,243,234,0.18);border-radius:var(--radius);padding:0.75rem;background:rgba(255,255,255,0.04)}
+    .choice strong{color:var(--ivory)}
+    .choice span{display:block;margin-top:0.35rem;color:var(--muted);font-size:0.84rem}
+    .section__intro{max-width:700px;margin-bottom:2.5rem;font-size:1.04rem}
+    .tag{display:inline-flex;align-items:center;width:fit-content;border:1px solid rgba(127,243,234,0.22);border-radius:999px;padding:0.25rem 0.58rem;color:var(--teal-300);background:rgba(22,199,189,0.075);font-size:0.72rem;font-weight:850}
+    .tag.gold{border-color:rgba(241,214,130,0.25);color:var(--gold-300);background:rgba(214,172,68,0.08)}
+    .archive-layout{display:grid;grid-template-columns:0.9fr 1.15fr;gap:1.4rem;align-items:stretch}
+    .archive-feature{border:1px solid rgba(241,214,130,0.28);border-radius:var(--radius);padding:clamp(1.4rem,4vw,2.4rem);background:linear-gradient(145deg,rgba(214,172,68,0.14),rgba(22,199,189,0.07)),var(--glass);box-shadow:var(--shadow)}
+    .archive-feature .stamp{display:inline-flex;margin-bottom:1.6rem;border:1px solid rgba(241,214,130,0.38);padding:0.4rem 0.68rem;color:var(--gold-300);font-weight:900;text-transform:uppercase;transform:rotate(-2deg)}
+    .archive-feature h3{margin-bottom:1rem;font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.9rem,4vw,3.5rem)}
+    .archive-list{display:grid;gap:0.9rem}
+    .archive-row{display:grid;grid-template-columns:auto 1fr auto;gap:1rem;align-items:center;border:1px solid rgba(127,243,234,0.16);border-radius:var(--radius);padding:1.1rem;background:rgba(255,255,255,0.045);transition:transform 180ms ease,border-color 180ms ease,background 180ms ease}
+    .archive-row:hover{transform:translateX(4px);border-color:rgba(22,199,189,0.44);background:rgba(22,199,189,0.075)}
+    .number{width:42px;height:42px;display:grid;place-items:center;border:1px solid rgba(241,214,130,0.28);color:var(--gold-300);font-weight:900}
+    .resource-link{color:var(--ivory);font-weight:850}
+    .resource-link::after{content:" →";color:var(--teal-300)}
+    .vault{background:linear-gradient(180deg,rgba(22,199,189,0.08),transparent 25%),rgba(255,255,255,0.018)}
+    .vault-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:auto;gap:1rem;align-items:stretch}
+    .vault-card{position:relative;overflow:hidden;border:1px solid rgba(127,243,234,0.18);border-radius:var(--radius);padding:1.35rem;background:linear-gradient(145deg,rgba(12,55,76,0.86),rgba(6,19,31,0.72));transition:transform 200ms ease,border-color 200ms ease,box-shadow 200ms ease}
+    .vault-card::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 88% 10%,rgba(22,199,189,0.18),transparent 16rem)}
+    .vault-card:hover{transform:translateY(-5px);border-color:rgba(241,214,130,0.34);box-shadow:0 20px 60px rgba(0,0,0,0.28)}
+    .vault-card.featured{grid-column:span 2;background:linear-gradient(145deg,rgba(22,199,189,0.18),rgba(214,172,68,0.1)),rgba(5,16,29,0.75)}
+    .vault-card h3{position:relative;margin:1.1rem 0 0.7rem;color:var(--ivory);font-size:clamp(1.25rem,2vw,2rem)}
+    .tag-row{position:relative;display:flex;flex-wrap:wrap;gap:0.42rem;margin-top:1.1rem}
+    .media{overflow:hidden}
+    .media-stage{display:grid;grid-template-columns:360px 1fr;gap:1.2rem;align-items:stretch}
+    .spotlight{position:sticky;top:96px;align-self:start;min-height:500px;border:1px solid rgba(241,214,130,0.28);border-radius:var(--radius);padding:1.35rem;background:linear-gradient(180deg,rgba(214,172,68,0.15),rgba(22,199,189,0.12)),var(--glass);box-shadow:var(--shadow)}
+    .spotlight__screen{aspect-ratio:16/10;margin-bottom:1.3rem;border:1px solid rgba(127,243,234,0.22);border-radius:var(--radius);background:linear-gradient(135deg,rgba(22,199,189,0.28),rgba(214,172,68,0.14)),repeating-linear-gradient(135deg,rgba(255,255,255,0.08) 0 1px,transparent 1px 13px);display:grid;place-items:center;color:var(--ivory);font-size:3rem;box-shadow:inset 0 0 60px rgba(0,0,0,0.28)}
+    .channel-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0.9rem}
+    .channel-card{display:grid;grid-template-columns:92px 1fr;gap:1rem;min-height:150px;border:1px solid rgba(127,243,234,0.16);border-radius:var(--radius);padding:0.8rem;background:rgba(255,255,255,0.045);transition:transform 180ms ease,background 180ms ease,border-color 180ms ease}
+    .channel-card:hover{transform:translateY(-3px);background:rgba(22,199,189,0.075);border-color:rgba(22,199,189,0.38)}
+    .thumb{display:grid;place-items:center;min-height:86px;border-radius:50%;width:72px;height:72px;margin:0 auto;border:2px solid rgba(255,255,255,0.12);font-size:1.1rem;font-weight:950;letter-spacing:0.01em;color:#fff}
+    .thumb-cc{background:radial-gradient(135deg,#e63946,#c1121f)}
+    .thumb-hq{background:radial-gradient(135deg,#2a9d8f,#264653)}
+    .thumb-ml{background:radial-gradient(135deg,#e76f51,#c0392b)}
+    .thumb-ys{background:radial-gradient(135deg,#457b9d,#1d3557)}
+    .thumb-ay{background:radial-gradient(135deg,#6a4c93,#1982c4)}
+    .thumb-ri{background:radial-gradient(135deg,#ff595e,#ff924c)}
+    .thumb-gg{background:radial-gradient(135deg,#06d6a0,#118ab2)}
+    .channel-card p{margin:0.45rem 0 0.7rem;font-size:0.9rem}
+    .watch{display:inline-flex;color:var(--teal-300);font-size:0.85rem;font-weight:900}
+    .toolbox{background:linear-gradient(90deg,rgba(214,172,68,0.08),transparent 28%),linear-gradient(270deg,rgba(22,199,189,0.1),transparent 34%)}
+    .toolbelt{display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:stretch}
+    .tool{position:relative;min-height:280px;border:1px dashed rgba(127,243,234,0.28);border-radius:var(--radius);padding:1.3rem;background:linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.025)),rgba(9,28,43,0.82)}
+    .tool:nth-child(2){border-style:solid;border-color:rgba(241,214,130,0.25)}
+    .tool h3{margin:1rem 0 0.8rem;color:var(--gold-300);font-size:1.32rem}
+    .tool .icon{width:54px;height:54px;display:grid;place-items:center;border-radius:50%;background:rgba(22,199,189,0.12);border:1px solid rgba(127,243,234,0.28);color:var(--teal-300);font-weight:950}
+    .tips-board{display:grid;grid-template-columns:1fr;gap:1.1rem;align-items:start}
+    .warning-panel{display:grid;grid-template-columns:minmax(220px,0.45fr) 1fr;gap:1rem;align-items:center;border:1px solid rgba(241,214,130,0.34);border-radius:var(--radius);padding:1.4rem;background:linear-gradient(145deg,rgba(214,172,68,0.14),rgba(5,16,29,0.75)),var(--glass);box-shadow:var(--shadow)}
+    .warning-panel h3{margin:0.7rem 0;font-family:Georgia,"Times New Roman",serif;font-size:2.1rem}
+    .tactics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0.8rem}
+    .tactic{border:1px solid rgba(127,243,234,0.16);border-radius:var(--radius);padding:1rem;background:rgba(255,255,255,0.045);transition:transform 180ms ease,border-color 180ms ease}
+    .tactic:hover{transform:translateY(-3px);border-color:rgba(22,199,189,0.38)}
+    .tactic small{display:inline-flex;margin-bottom:0.65rem;color:var(--gold-300);font-weight:950;text-transform:uppercase}
+    .advice{background:linear-gradient(180deg,transparent,rgba(22,199,189,0.08) 40%,transparent),rgba(255,255,255,0.012)}
+    .letter{max-width:900px;margin:0 auto}
+    .letter h2{margin-bottom:2rem}
+    .advice-stream{display:grid;gap:1.7rem;margin-top:2.4rem}
+    .advice-item{display:grid;grid-template-columns:150px 1fr;gap:1.5rem;padding:0 0 1.7rem;border-bottom:1px solid rgba(127,243,234,0.14)}
+    .advice-item strong{color:var(--gold-300);font-size:0.9rem;text-transform:uppercase}
+    .closing-quote{margin-top:3.2rem;border-left:2px solid var(--gold-300);padding:0.5rem 0 0.5rem 1.6rem;color:var(--ivory);font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.5rem,3vw,2.5rem);line-height:1.2}
+    .contribute{padding-bottom:5rem}
+    .contribute-panel{display:grid;grid-template-columns:1fr 0.9fr;gap:1.2rem;border:1px solid rgba(127,243,234,0.2);border-radius:var(--radius);padding:clamp(1.2rem,4vw,2rem);background:radial-gradient(circle at 0 0,rgba(22,199,189,0.2),transparent 24rem),radial-gradient(circle at 100% 20%,rgba(214,172,68,0.14),transparent 22rem),rgba(5,16,29,0.72);box-shadow:var(--shadow)}
+    .contact-grid{display:grid;gap:0.8rem;align-content:start}
+    .contact-line{display:flex;flex-wrap:wrap;gap:0.6rem;justify-content:space-between;border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius);padding:1rem;background:rgba(255,255,255,0.045)}
+    .contact-line span{color:var(--muted);font-weight:850}
+    .contact-line a,.contact-line b{color:var(--teal-300);word-break:break-word}
+    .footer{border-top:1px solid rgba(127,243,234,0.14);padding:2.2rem 0;background:rgba(3,12,22,0.72)}
+    .footer__grid{display:grid;grid-template-columns:1fr auto;gap:1.5rem;align-items:end}
+    .footer small{display:block;color:var(--muted);max-width:760px}
+    .reveal{opacity:0;transform:translateY(22px);transition:opacity 650ms ease,transform 650ms ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    @keyframes drift{0%,100%{translate:0 0}50%{translate:0 -14px}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important}}
+    @media(max-width:980px){
+      .hero__grid,.archive-layout,.command-grid,.vault-grid,.media-stage,.tips-board,.contribute-panel,.footer__grid{grid-template-columns:1fr}
+      .vault-card.featured{grid-column:auto}
+      .warning-panel{grid-template-columns:1fr}
+      .hero{min-height:auto}
+      .hero__artifact{min-height:420px}
+      .spotlight{position:relative;top:0;min-height:auto}
+      .toolbelt{grid-template-columns:1fr}
+      .map-track{grid-template-columns:repeat(4,minmax(0,1fr))}
+    }
+    @media(max-width:760px){
+      .nav__inner{min-height:66px}
+      .menu-toggle{display:block}
+      .nav__links{position:absolute;top:66px;left:16px;right:16px;display:none;padding:0.8rem;border:1px solid rgba(127,243,234,0.16);border-radius:var(--radius);background:rgba(5,16,29,0.96);box-shadow:var(--shadow)}
+      .nav.open .nav__links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+      .nav__links a{text-align:center}
+      .hero-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .map-track{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .map-header{display:block}
+      .map-header p{margin-top:0.5rem;text-align:left}
+      .hero{padding-top:7.4rem}
+      h1{font-size:clamp(3.45rem,16vw,5.5rem)}
+      .archive-row{grid-template-columns:1fr}
+      .channel-grid,.study-grid,.topic-matrix,.flashcards,.paper-choice,.tactics{grid-template-columns:1fr}
+      .channel-card{grid-template-columns:1fr}
+      .advice-item{grid-template-columns:1fr;gap:0.55rem}
+    }
+    @media(max-width:480px){
+      .wrap,.nav__inner{width:min(100% - 22px,var(--max))}
+      .hero__actions{display:grid;grid-template-columns:1fr 1fr}
+      .hero-stats,.map-track{grid-template-columns:1fr}
+      .pill,.button{width:100%;padding-inline:0.65rem;font-size:0.86rem}
+      .artifact-card,.artifact-card:nth-child(2),.artifact-card:nth-child(3){position:relative;inset:auto;width:100%;margin-bottom:0.8rem;transform:none}
+      .hero__artifact{min-height:auto}
     }
   </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-
   <nav class="nav" aria-label="Primary navigation">
     <div class="nav__inner">
       <a class="brand" href="#hero" aria-label="IGCSE Sociology Survival Hub home">
@@ -1514,18 +287,15 @@
   </nav>
 
   <main id="main">
+
     <section class="hero section" id="hero">
       <div class="wrap hero__grid">
         <div class="reveal">
           <div class="eyebrow">Cambridge IGCSE / O-Level Sociology 0495</div>
           <h1 class="hero__title">The guide to <span>actually</span> surviving Sociology.</h1>
           <p class="hero__statement">Built by students, for students.</p>
-          <p class="hero__copy">
-            Hey, fellow sociology students! I've been collecting resources and advice for Sociology for a while now and decided to dump it all here instead of gatekeeping it. Whether you just opened the syllabus for the first time or you're three days from the exam, fuelled by endless White Monsters, I hope there's something here for you.
-          </p>
-          <p class="hero__copy">
-            I'm on the Cambridge 0495 syllabus. Note that this is identical to the O-Level syllabus. For Edexcel or AQA, most stuff applies broadly, but always double-check with your own spec because boards love to be different just to annoy tf outta us. Also: drop your own resources and tips. We're all suffering together.
-          </p>
+          <p class="hero__copy">Hey, fellow sociology students! I've been collecting resources and advice for a while and decided to dump it all here instead of gatekeeping it. Whether you just cracked open the syllabus for the first time or you're three days from the exam running on White Monsters and sheer denial — I hope there's something here for you.</p>
+          <p class="hero__copy" style="margin-top:0.9rem">This is built around the Cambridge 0495 syllabus, which is identical to O-Level. For Edexcel or AQA, most of it still applies — just double-check against your own spec, because boards love being subtly different for no reason. Drop your own resources and tips in the contribute section. We're all in this together.</p>
           <div class="hero__actions" aria-label="Quick navigation">
             <a class="button" href="#resources">Start with resources</a>
             <a class="pill" href="#notes">Revision Notes</a>
@@ -1535,47 +305,27 @@
             <a class="pill" href="#advice">Advice</a>
             <a class="pill" href="#contribute">Contribute</a>
           </div>
-
-          <div class="hero-stats" aria-label="Site resource summary">
-            <div class="hero-stat">
-              <strong>20+</strong>
-              <span>resources linked</span>
-            </div>
-            <div class="hero-stat">
-              <strong>7</strong>
-              <span>survival chapters</span>
-            </div>
-            <div class="hero-stat">
-              <strong>0495</strong>
-              <span>Cambridge focus</span>
-            </div>
+          <div class="hero-stats" aria-label="Site overview">
+            <div class="hero-stat"><strong>20+</strong><span>resources linked</span></div>
+            <div class="hero-stat"><strong>7</strong><span>chapters</span></div>
+            <div class="hero-stat"><strong>0495</strong><span>Cambridge focus</span></div>
           </div>
         </div>
-
         <div class="hero__artifact" aria-hidden="true">
           <div class="artifact-card">
-            <span class="artifact-kicker">Resource pulse</span>
-            <strong>Resources and advice for Sociology, all dumped here instead of gatekept.</strong>
-            <p>For people who just opened the syllabus and people who are three days from the exam.</p>
-            <div class="meter">
-              <span style="--w: 92%"></span>
-              <span style="--w: 78%"></span>
-              <span style="--w: 64%"></span>
-            </div>
-            <div class="meter-labels">
-              <span>panic converted into structure</span>
-              <span>92%</span>
-            </div>
+            <span class="artifact-kicker">What's in here</span>
+            <strong>Resources, notes, YouTube channels, exam tactics, and study advice — all in one place.</strong>
+            <p>Start at the top. Use what helps. Skip what doesn't.</p>
           </div>
           <div class="artifact-card">
             <span class="artifact-kicker">Exam mode</span>
-            <strong>PEEL paragraphs, sociologists, short-answer questions, and time management.</strong>
-            <p>The things that actually make the exam less terrifying.</p>
+            <strong>PEEL paragraphs, sociologists, short answers, time management.</strong>
+            <p>The unsexy stuff that actually makes the exam less terrifying.</p>
           </div>
           <div class="artifact-card">
-            <span class="artifact-kicker">Community signal</span>
-            <strong>Drop your own resources and tips.</strong>
-            <p>We're all suffering together.</p>
+            <span class="artifact-kicker">Community</span>
+            <strong>Found something useful? Submit it.</strong>
+            <p>The more people contribute, the better this gets for everyone.</p>
           </div>
         </div>
       </div>
@@ -1585,44 +335,16 @@
       <div class="wrap map-panel reveal">
         <div class="map-header">
           <h2>Sociology Survival Map</h2>
-          <p>The shortest route from "I just opened the syllabus" to "okay, maybe I can actually do this."</p>
+          <p>From "I just opened the syllabus" to "okay, I can actually do this" — in seven steps.</p>
         </div>
         <div class="map-track">
-          <a class="map-step" href="#resources">
-            <small>01</small>
-            <strong>Syllabus</strong>
-            <span>Know what they can ask before the exam board jumpscares you.</span>
-          </a>
-          <a class="map-step" href="#study-tools">
-            <small>02</small>
-            <strong>Command center</strong>
-            <span>Track topics, sociologists, command words, and emergency revision.</span>
-          </a>
-          <a class="map-step" href="#notes">
-            <small>03</small>
-            <strong>Notes</strong>
-            <span>Build the base with ZNotes, Zizi, Cheese, IGCSE Journey, and theory docs.</span>
-          </a>
-          <a class="map-step" href="#youtube">
-            <small>04</small>
-            <strong>Videos</strong>
-            <span>Use creators when the textbook starts speaking in riddles.</span>
-          </a>
-          <a class="map-step" href="#tips">
-            <small>05</small>
-            <strong>Exam mode</strong>
-            <span>PEEL, short answers, sociologists, timing. The unsexy stuff that works.</span>
-          </a>
-          <a class="map-step" href="#advice">
-            <small>06</small>
-            <strong>Memory</strong>
-            <span>Active recall, spaced repetition, past papers, teaching someone else.</span>
-          </a>
-          <a class="map-step" href="#contribute">
-            <small>07</small>
-            <strong>Community</strong>
-            <span>Drop your own resources. We're all suffering together.</span>
-          </a>
+          <a class="map-step" href="#resources"><small>01</small><strong>Syllabus</strong><span>Know what they can ask before the exam catches you off guard.</span></a>
+          <a class="map-step" href="#study-tools"><small>02</small><strong>Command center</strong><span>Topics, sociologists, command words, emergency revision.</span></a>
+          <a class="map-step" href="#notes"><small>03</small><strong>Notes</strong><span>ZNotes, Zizi, Cheese, IGCSE Journey, theory docs.</span></a>
+          <a class="map-step" href="#youtube"><small>04</small><strong>Videos</strong><span>For when the textbook stops making sense.</span></a>
+          <a class="map-step" href="#tips"><small>05</small><strong>Exam mode</strong><span>PEEL, short answers, sociologists, timing.</span></a>
+          <a class="map-step" href="#advice"><small>06</small><strong>Study skills</strong><span>Active recall, spaced repetition, past papers, Feynman.</span></a>
+          <a class="map-step" href="#contribute"><small>07</small><strong>Community</strong><span>Drop your own resources. Everyone benefits.</span></a>
         </div>
       </div>
     </section>
@@ -1632,30 +354,28 @@
         <div class="reveal">
           <div class="eyebrow">Chapter 01 / Archive</div>
           <h2>Syllabus + core resources</h2>
-          <p class="section__intro">Aka "things I wish I had on day one."</p>
+          <p class="section__intro">Things I wish I had on day one — start here before going anywhere else.</p>
         </div>
-
         <div class="archive-layout reveal">
           <article class="archive-feature">
             <span class="stamp">Must use</span>
             <h3>Official syllabus</h3>
-            <p>Official syllabus for Cambridge IGCSE Sociology 0495. Start here, seriously. Everything comes back to the syllabus.</p>
+            <p>The official Cambridge IGCSE Sociology 0495 syllabus. Everything comes back to this. Print it, keep it open, refer to it constantly.</p>
             <div class="tag-row">
               <span class="tag gold">official</span>
-              <span class="tag">2025-2027</span>
+              <span class="tag">2025–2027</span>
               <span class="tag">exam blueprint</span>
             </div>
             <p style="margin-top:1.4rem">
               <a class="button" href="https://www.cambridgeinternational.org/Images/662464-2025-2027-syllabus.pdf" target="_blank" rel="noopener">Open Cambridge syllabus</a>
             </p>
           </article>
-
           <div class="archive-list">
             <article class="archive-row">
               <span class="number">01</span>
               <div>
-                <h3>Sociology for Cambridge IGCSE by Jonathan Blundell</h3>
-                <p>Sociology for Cambridge IGCSE by Jonathan Blundell.</p>
+                <h3>Sociology for Cambridge IGCSE — Jonathan Blundell</h3>
+                <p>The standard textbook. Solid explanations, covers the whole spec. Good starting point if you need everything in one place.</p>
               </div>
               <span class="tag gold">foundational</span>
             </article>
@@ -1663,8 +383,8 @@
               <span class="number">02</span>
               <div>
                 <h3>Past papers</h3>
-                <p>Past papers. Do them early, do them properly, and use the mark schemes so you actually learn how examiners think.</p>
-                <p style="margin-top:0.65rem"><a class="resource-link" href="https://ciegt.pooruli.com/igcse/0495" target="_blank" rel="noopener">Open Cambridge 0495 past papers on CIE GT</a></p>
+                <p>Do them early, do them properly, and actually use the mark schemes so you learn how examiners think — not just whether you got it right.</p>
+                <p style="margin-top:0.65rem"><a class="resource-link" href="https://ciegt.pooruli.com/igcse/0495" target="_blank" rel="noopener">Cambridge 0495 past papers on CIE GT</a></p>
               </div>
               <span class="tag">practice</span>
             </article>
@@ -1672,7 +392,7 @@
               <span class="number">03</span>
               <div>
                 <h3>Official specimen papers</h3>
-                <p>Official Cambridge specimen papers for the 2025 syllabus. Good for seeing the new format before you start fighting random old papers.</p>
+                <p>Cambridge specimen papers for the 2025 syllabus. Worth doing before the older papers — the format has changed.</p>
                 <div class="tag-row">
                   <a class="tag gold" href="https://www.cambridgeinternational.org/Images/662620-2025-specimen-paper-1.pdf" target="_blank" rel="noopener">Paper 1</a>
                   <a class="tag" href="https://www.cambridgeinternational.org/Images/662624-2025-specimen-paper-1-markscheme.pdf" target="_blank" rel="noopener">Paper 1 mark scheme</a>
@@ -1685,8 +405,8 @@
             <article class="archive-row">
               <span class="number">04</span>
               <div>
-                <h3>Spec sanity check</h3>
-                <p>Cambridge 0495 is identical to the O-Level syllabus. For Edexcel or AQA, most stuff applies broadly, but always double-check with your own spec.</p>
+                <h3>Spec check — 0495 vs O-Level vs Edexcel</h3>
+                <p>Cambridge 0495 and O-Level Sociology use the same syllabus. For Edexcel or AQA, much of this still applies — but verify the topic list against your own spec.</p>
               </div>
               <span class="tag">important</span>
             </article>
@@ -1700,17 +420,16 @@
         <div class="reveal">
           <div class="eyebrow">Chapter 01.5 / Exam kit</div>
           <h2>Stuff that makes this more than a link dump</h2>
-          <p class="section__intro">This is the useful part: track what you've covered, remember what command words want, plan longer answers, and stop opening ten tabs just to avoid revising.</p>
+          <p class="section__intro">Track topics, check command words, revise sociologists, plan Paper 2 — and stop opening ten tabs to procrastinate.</p>
         </div>
-
         <div class="command-grid reveal">
           <aside class="exam-brief">
-            <span class="tag gold">0495 exam map</span>
+            <span class="tag gold">0495 exam structure</span>
             <h3>What the exam is actually testing</h3>
-            <p>Two papers. Both 80 marks. Both worth 50%. Paper 1 has Research Methods, then a choice. Paper 2 makes you choose two out of Family, Education, and Crime.</p>
+            <p>Two papers. Both 80 marks. Both worth 50%. Paper 1 has Research Methods as a compulsory topic, then you choose one more. Paper 2 gives you three topics and you pick two.</p>
             <div class="paper-stack">
               <div class="paper-card">
-                <strong>Paper 1 - 2 hours</strong>
+                <strong>Paper 1 — 2 hours</strong>
                 <ul>
                   <li>Research Methods is compulsory.</li>
                   <li>Then choose Identity or Inequality.</li>
@@ -1718,29 +437,27 @@
                 </ul>
               </div>
               <div class="paper-card">
-                <strong>Paper 2 - 1 hour 45 minutes</strong>
+                <strong>Paper 2 — 1 hour 45 minutes</strong>
                 <ul>
-                  <li>Choose two: Family, Education, Crime.</li>
-                  <li>Each chosen question is worth 40 marks.</li>
-                  <li>Parts e and f need proper arguments, not vibes.</li>
+                  <li>Choose two: Family, Education, or Crime.</li>
+                  <li>Each question is worth 40 marks.</li>
+                  <li>Parts (e) and (f) need proper arguments — not vibes.</li>
                 </ul>
               </div>
             </div>
-            <span class="last-updated">Last updated: May 2026, using the 2025-2027 syllabus.</span>
+            <span class="last-updated">Last updated May 2026 · 2025–2027 syllabus</span>
           </aside>
-
           <div>
             <div class="tool-search">
-              <label for="resourceSearch">Find help fast</label>
+              <label for="resourceSearch">Find fast</label>
               <input id="resourceSearch" type="search" placeholder="Try: sociologists, Paper 2, crime, command words, emergency..." autocomplete="off">
               <button class="clear-search" type="button">Clear</button>
             </div>
-
             <div class="study-grid" id="studyGrid">
               <article class="study-card wide" data-keywords="topic tracker syllabus paper 1 paper 2 research identity inequality family education crime">
                 <span class="tag gold">topic tracker</span>
                 <h3>0495 topic tracker</h3>
-                <p>Use this as your syllabus radar. Tick things off here instead of lying to yourself in your head.</p>
+                <p>Tick off what you've actually covered. Saves from convincing yourself you've revised something you skimmed twice.</p>
                 <div class="topic-matrix">
                   <label class="topic-pill"><input type="checkbox" data-topic="research-methods"><span>Paper 1</span><strong>Research Methods</strong></label>
                   <label class="topic-pill"><input type="checkbox" data-topic="identity"><span>Paper 1</span><strong>Identity: self and society</strong></label>
@@ -1750,77 +467,101 @@
                   <label class="topic-pill"><input type="checkbox" data-topic="crime"><span>Paper 2</span><strong>Crime, deviance and social control</strong></label>
                 </div>
                 <div class="progress-bar" aria-hidden="true"><span id="topicProgress"></span></div>
-                <p class="progress-copy" id="topicProgressCopy">0/6 topics ticked. Painfully honest.</p>
+                <p class="progress-copy" id="topicProgressCopy">0 of 6 topics covered.</p>
               </article>
-
-              <article class="study-card" data-keywords="exam checklist before paper revision checklist ao1 ao2 ao3">
+              <article class="study-card" data-keywords="exam checklist before paper revision ao1 ao2 ao3">
                 <span class="tag">exam checklist</span>
                 <h3>Before you sit the paper</h3>
                 <ul class="checklist">
-                  <li>Can I explain key terms without turning them into a whole essay?</li>
+                  <li>Can I define key terms without writing an essay?</li>
                   <li>Can I explain both sides of a debate?</li>
-                  <li>Can I use named sociologists without randomly sprinkling them in?</li>
-                  <li>Can I add examples that are short and actually relevant?</li>
+                  <li>Can I use named sociologists where they actually fit?</li>
+                  <li>Can I give examples that are short and relevant?</li>
                   <li>Can I evaluate strengths and limitations?</li>
                 </ul>
               </article>
-
               <article class="study-card" data-keywords="command words describe explain evaluate discuss to what extent compare assess">
                 <span class="tag">command words</span>
-                <h3>What the question is really asking</h3>
+                <h3>What the question is actually asking</h3>
                 <div class="command-list">
                   <div class="command-row"><strong>Describe</strong><span>Say what it is like. Keep it focused.</span></div>
-                  <div class="command-row"><strong>Explain</strong><span>Give the reason and show the link. Do not just state.</span></div>
+                  <div class="command-row"><strong>Explain</strong><span>Give the reason and show the link — don't just state it.</span></div>
                   <div class="command-row"><strong>Compare</strong><span>Show similarity or difference clearly.</span></div>
-                  <div class="command-row"><strong>Evaluate</strong><span>Strengths, weaknesses, then judgement. This is where marks live.</span></div>
+                  <div class="command-row"><strong>Evaluate</strong><span>Strengths, weaknesses, then a judgement. This is where marks live.</span></div>
                 </div>
               </article>
-
               <article class="study-card wide" data-keywords="sociologist flashcards marx durkheim weber oakley becker merton feminism functionalism marxism interactionism">
                 <span class="tag gold">sociologist flashcards</span>
-                <h3>Name-drop responsibly</h3>
-                <p>Examiners like sociologists when they actually fit the point. Do not throw Durkheim into the paragraph like seasoning and hope for the best.</p>
+                <h3>Name-drop responsibly — click a card to flip it</h3>
+                <p>Use theorists when they actually fit your argument. Don't throw Durkheim into a paragraph like seasoning and hope for the best.</p>
                 <div class="flashcards">
-                  <div class="flashcard"><strong>Durkheim</strong><span>Functionalism, social solidarity, social facts, social control.</span></div>
-                  <div class="flashcard"><strong>Marx</strong><span>Class conflict, capitalism, exploitation, inequality.</span></div>
-                  <div class="flashcard"><strong>Weber</strong><span>Class, status, power, life chances.</span></div>
-                  <div class="flashcard"><strong>Oakley</strong><span>Gender socialisation and family roles.</span></div>
-                  <div class="flashcard"><strong>Becker</strong><span>Labelling, deviance, self-fulfilling prophecy.</span></div>
-                  <div class="flashcard"><strong>Merton</strong><span>Strain theory and deviance.</span></div>
+                  <div class="flashcard" onclick="this.classList.toggle('flipped')" tabindex="0" role="button" aria-label="Durkheim flashcard">
+                    <div class="flashcard-inner">
+                      <div class="flashcard-front"><strong>Durkheim</strong><div class="flip-hint">click to reveal →</div></div>
+                      <div class="flashcard-back"><span>Functionalism, social solidarity, social facts, social control.</span></div>
+                    </div>
+                  </div>
+                  <div class="flashcard" onclick="this.classList.toggle('flipped')" tabindex="0" role="button" aria-label="Marx flashcard">
+                    <div class="flashcard-inner">
+                      <div class="flashcard-front"><strong>Marx</strong><div class="flip-hint">click to reveal →</div></div>
+                      <div class="flashcard-back"><span>Class conflict, capitalism, exploitation, inequality.</span></div>
+                    </div>
+                  </div>
+                  <div class="flashcard" onclick="this.classList.toggle('flipped')" tabindex="0" role="button" aria-label="Weber flashcard">
+                    <div class="flashcard-inner">
+                      <div class="flashcard-front"><strong>Weber</strong><div class="flip-hint">click to reveal →</div></div>
+                      <div class="flashcard-back"><span>Class, status, power, life chances.</span></div>
+                    </div>
+                  </div>
+                  <div class="flashcard" onclick="this.classList.toggle('flipped')" tabindex="0" role="button" aria-label="Oakley flashcard">
+                    <div class="flashcard-inner">
+                      <div class="flashcard-front"><strong>Oakley</strong><div class="flip-hint">click to reveal →</div></div>
+                      <div class="flashcard-back"><span>Gender socialisation, domestic labour, family roles.</span></div>
+                    </div>
+                  </div>
+                  <div class="flashcard" onclick="this.classList.toggle('flipped')" tabindex="0" role="button" aria-label="Becker flashcard">
+                    <div class="flashcard-inner">
+                      <div class="flashcard-front"><strong>Becker</strong><div class="flip-hint">click to reveal →</div></div>
+                      <div class="flashcard-back"><span>Labelling theory, deviance, self-fulfilling prophecy.</span></div>
+                    </div>
+                  </div>
+                  <div class="flashcard" onclick="this.classList.toggle('flipped')" tabindex="0" role="button" aria-label="Merton flashcard">
+                    <div class="flashcard-inner">
+                      <div class="flashcard-front"><strong>Merton</strong><div class="flip-hint">click to reveal →</div></div>
+                      <div class="flashcard-back"><span>Strain theory, deviance, anomie, opportunity structures.</span></div>
+                    </div>
+                  </div>
                 </div>
               </article>
-
               <article class="study-card" data-keywords="past paper strategy timing mark scheme peel 15 markers paper 1 paper 2">
                 <span class="tag">past-paper strategy</span>
-                <h3>Past papers early</h3>
+                <h3>How to actually use past papers</h3>
                 <ul class="mini-list">
-                  <li>Start with open-book attempts so you learn structure.</li>
-                  <li>Then self-mark with the mark scheme open.</li>
-                  <li>Finally do timed papers because your hand needs training too.</li>
+                  <li>Start open-book so you learn the structure first.</li>
+                  <li>Then self-mark with the mark scheme open every time.</li>
+                  <li>Finally do timed papers — your hand needs practice too.</li>
                   <li>For longer answers: point, evidence, explain, evaluate, link.</li>
                 </ul>
               </article>
-
               <article class="study-card" data-keywords="top 5 emergency resources night before exam znotes syllabus sociologists past papers command words">
-                <span class="tag gold">emergency mode</span>
-                <h3>Top 5 if the exam is soon</h3>
+                <span class="tag gold">exam is tomorrow</span>
+                <h3>Top 5 if you're out of time</h3>
                 <ol class="mini-list">
-                  <li>Official syllabus</li>
-                  <li>ZNotes / your shortest notes</li>
+                  <li>Official syllabus — what can and can't come up</li>
+                  <li>ZNotes or your shortest notes</li>
                   <li>Sociologists cheat sheet</li>
-                  <li><a class="resource-link" href="https://ciegt.pooruli.com/igcse/0495" target="_blank" rel="noopener">Recent 0495 past papers + mark schemes</a></li>
+                  <li><a class="resource-link" href="https://ciegt.pooruli.com/igcse/0495" target="_blank" rel="noopener">Recent past papers + mark schemes</a></li>
                   <li>Command words + answer structure</li>
                 </ol>
               </article>
-
               <article class="study-card wide" data-keywords="paper 2 chooser family education crime strategy choose two">
                 <span class="tag">Paper 2 chooser</span>
                 <h3>Paper 2: choose your two wisely</h3>
-                <p>Family, Education, Crime. Pick the two you can actually argue, not the two that look cute on the day.</p>
+                <p>Family, Education, Crime. Pick the two you can actually argue — not the two that seem easiest when you're staring at the front cover.</p>
                 <div class="paper-choice">
-                  <div class="choice"><strong>Family</strong><span>Good if you know roles, marriage, divorce, childhood, and theory.</span></div>
-                  <div class="choice"><strong>Education</strong><span>Good if you can handle class, gender, ethnicity, hidden curriculum, and labelling.</span></div>
-                  <div class="choice"><strong>Crime</strong><span>Good if you know deviance, social control, official stats, labelling, and explanations.</span></div>
+                  <div class="choice"><strong>Family</strong><span>Good if you know roles, marriage, divorce, childhood, and sociological perspectives.</span></div>
+                  <div class="choice"><strong>Education</strong><span>Good if you can handle class, gender, ethnicity, the hidden curriculum, and labelling.</span></div>
+                  <div class="choice"><strong>Crime</strong><span>Good if you know deviance, social control, official statistics, labelling, and explanations of crime.</span></div>
                 </div>
               </article>
             </div>
@@ -1834,59 +575,42 @@
         <div class="reveal">
           <div class="eyebrow">Chapter 02 / Vault</div>
           <h2>Revision notes</h2>
-          <p class="section__intro">The notes and theory docs I found useful while collecting resources for Sociology.</p>
+          <p class="section__intro">Notes and theory docs that are actually worth reading — not just ones that look good on a Google Drive.</p>
         </div>
-
         <div class="vault-grid reveal">
           <article class="vault-card featured">
-            <span class="tag gold">featured resource</span>
+            <span class="tag gold">featured</span>
             <h3><a class="resource-link" href="https://znotes.org/caie/igcse/sociology-0495/" target="_blank" rel="noopener">ZNotes</a></h3>
-            <p>Well explained, concise, complete, and well-formatted. Totally not over-glazing them cuz I made them.</p>
+            <p>Concise, well-structured, exam-focused. Full disclosure — I helped make these. But they're genuinely useful, which is why they're here.</p>
             <div class="tag-row">
               <span class="tag">concise</span>
               <span class="tag">exam-focused</span>
-              <span class="tag gold">community favorite</span>
+              <span class="tag gold">community favourite</span>
             </div>
           </article>
-
           <article class="vault-card">
             <span class="tag">detailed</span>
             <h3><a class="resource-link" href="https://docs.google.com/document/d/1Zy7vT92uBJVJKDyoiYEboAc-i11hT1WyBgEfMOxnAco/edit?tab=t.70twm2nf1v67" target="_blank" rel="noopener">Zizi's Notes</a></h3>
-            <p>Made by the GOAT. Extremely well-explained and cohesive.</p>
-            <div class="tag-row">
-              <span class="tag">detailed</span>
-              <span class="tag">clear explanations</span>
-            </div>
+            <p>Extremely thorough. If you want proper depth and clear explanation, start here.</p>
+            <div class="tag-row"><span class="tag">detailed</span><span class="tag">well-explained</span></div>
           </article>
-
           <article class="vault-card">
-            <span class="tag">Notion gem</span>
+            <span class="tag">Notion</span>
             <h3><a class="resource-link" href="https://www.notion.so/srishtis/Sociology-IGCSE-34cfcec1b9c64e80b3ba8b2e7bf45dc2?pvs=4" target="_blank" rel="noopener">Cheese Notes</a></h3>
-            <p>Really nice notes made by cheeseisloml on Notion.</p>
-            <div class="tag-row">
-              <span class="tag">organized</span>
-              <span class="tag">student-made</span>
-            </div>
+            <p>Well-organised Notion notes by cheeseisloml. Good layout, easy to navigate.</p>
+            <div class="tag-row"><span class="tag">organised</span><span class="tag">student-made</span></div>
           </article>
-
           <article class="vault-card">
             <span class="tag gold">theory-heavy</span>
             <h3><a class="resource-link" href="https://docs.google.com/document/d/1grSsvRvRo2wQXjihby0n95jnQ8fy1DMULtcWLuHZLrs/edit" target="_blank" rel="noopener">Sociologists cheat sheet</a></h3>
-            <p>Some random but VERY useful doc on sociologists' names and theories.</p>
-            <div class="tag-row">
-              <span class="tag">name drops</span>
-              <span class="tag">theory bank</span>
-            </div>
+            <p>A focused doc of sociologist names and theories. Memorise this before the exam.</p>
+            <div class="tag-row"><span class="tag">name-drops</span><span class="tag">theory bank</span></div>
           </article>
-
           <article class="vault-card">
             <span class="tag">extra notes</span>
             <h3><a class="resource-link" href="https://www.igcsejourney.com/sociology" target="_blank" rel="noopener">IGCSE Journey</a></h3>
-            <p>IGCSE Journey Sociology resources for notes, exam tips, flashcards, and topical practice.</p>
-            <div class="tag-row">
-              <span class="tag">summary notes</span>
-              <span class="tag">flashcards</span>
-            </div>
+            <p>Notes, exam tips, flashcards, and topical practice in one place. Good backup resource.</p>
+            <div class="tag-row"><span class="tag">summary notes</span><span class="tag">flashcards</span></div>
           </article>
         </div>
       </div>
@@ -1897,77 +621,75 @@
         <div class="reveal">
           <div class="eyebrow">Chapter 03 / Media desk</div>
           <h2>YouTube channels</h2>
-          <p class="section__intro">YouTube + media resources for conceptual understanding, crash revision, exam prep, and theory explanation.</p>
+          <p class="section__intro">For when reading stops working. These are good for building understanding, not just memorising facts.</p>
         </div>
-
         <div class="media-stage reveal">
           <aside class="spotlight">
-            <div class="spotlight__screen">â–¶</div>
-            <span class="tag gold">creator spotlight</span>
-            <h3 style="margin:1rem 0 0.7rem; font-size:1.7rem;">YouTube + media</h3>
-            <p>Useful channels and videos I found while collecting resources. Use them for explanation, revision, and getting unstuck when the textbook starts looking like ancient scripture.</p>
+            <div class="spotlight__screen">▶</div>
+            <span class="tag gold">how to use these</span>
+            <h3 style="margin:1rem 0 0.7rem;font-size:1.7rem">Video resources</h3>
+            <p>Don't just watch passively. Pause, make a note, test yourself afterwards. A 10-minute video you engage with beats a 40-minute one you let play in the background.</p>
             <div class="tag-row">
               <span class="tag">conceptual understanding</span>
               <span class="tag">crash revision</span>
               <span class="tag">exam prep</span>
             </div>
           </aside>
-
           <div class="channel-grid">
             <article class="channel-card">
-              <div class="thumb">CC</div>
+              <div class="thumb thumb-cc">CC</div>
               <div>
                 <h3><a class="resource-link" href="https://www.youtube.com/playlist?list=PL8dPuuaLjXtMJ-AfB_7J1538YKWkZAnGA" target="_blank" rel="noopener">Crash Course Sociology</a></h3>
-                <p>Useful for conceptual understanding.</p>
-                <span class="tag">conceptual understanding</span>
+                <p>Best for building conceptual understanding before you start note-taking.</p>
+                <span class="tag">conceptual</span>
               </div>
             </article>
             <article class="channel-card">
-              <div class="thumb">HQ</div>
+              <div class="thumb thumb-hq">HQ</div>
               <div>
                 <h3><a class="resource-link" href="https://www.youtube.com/results?search_query=HQ+Academy+IGCSE+Sociology" target="_blank" rel="noopener">HQ Academy</a></h3>
-                <p>Useful for Sociology revision and exam prep.</p>
+                <p>Good for IGCSE-specific revision and exam prep.</p>
                 <span class="tag">exam prep</span>
               </div>
             </article>
             <article class="channel-card">
-              <div class="thumb">ML</div>
+              <div class="thumb thumb-ml">ML</div>
               <div>
                 <h3><a class="resource-link" href="https://www.youtube.com/channel/UCKBbUbxX3-Da9ooXNYkeAcA" target="_blank" rel="noopener">Miss Laiba Sociology</a></h3>
-                <p>Useful for Sociology explanations and revision.</p>
-                <span class="tag">theory explanation</span>
+                <p>Clear explanations, good for theory and revision walkthroughs.</p>
+                <span class="tag">theory</span>
               </div>
             </article>
             <article class="channel-card">
-              <div class="thumb">YS</div>
+              <div class="thumb thumb-ys">YS</div>
               <div>
-                <h3><a class="resource-link" href="https://www.youtube.com/@hadishah5482" target="_blank" rel="noopener">Your Tutor - Saqlain Shah</a></h3>
-                <p>Useful for revision and theory explanation.</p>
-                <span class="tag">revision support</span>
+                <h3><a class="resource-link" href="https://www.youtube.com/@hadishah5482" target="_blank" rel="noopener">Your Tutor — Saqlain Shah</a></h3>
+                <p>Useful for revision and working through theory explanations.</p>
+                <span class="tag">revision</span>
               </div>
             </article>
             <article class="channel-card">
-              <div class="thumb">AY</div>
+              <div class="thumb thumb-ay">AY</div>
               <div>
                 <h3><a class="resource-link" href="https://www.youtube.com/@ayloti" target="_blank" rel="noopener">AYLOTI</a></h3>
-                <p>Useful for extra explanations and revision support.</p>
+                <p>Extra explanations and revision support.</p>
                 <span class="tag">extra support</span>
               </div>
             </article>
             <article class="channel-card">
-              <div class="thumb">P1</div>
+              <div class="thumb thumb-ri">r/I</div>
               <div>
-                <h3>r/IGCSE P1 study session</h3>
-                <p>r/IGCSE P1 study session.</p>
-                <a class="watch" href="https://www.youtube.com/watch?v=rnInyQLQX-s" target="_blank" rel="noopener">Watch session</a>
+                <h3>r/IGCSE Paper 1 study session</h3>
+                <p>Community-run study session recorded and posted to YouTube.</p>
+                <a class="watch" href="https://www.youtube.com/watch?v=rnInyQLQX-s" target="_blank" rel="noopener">Watch session →</a>
               </div>
             </article>
             <article class="channel-card">
-              <div class="thumb">GG</div>
+              <div class="thumb thumb-gg">GG</div>
               <div>
-                <h3>GCSE Guide sociology video</h3>
-                <p>GCSE Guide sociology video.</p>
-                <a class="watch" href="https://www.youtube.com/watch?v=QkQyJYu-dhk" target="_blank" rel="noopener">Watch video</a>
+                <h3>GCSE Guide sociology</h3>
+                <p>General sociology explainer video, useful for foundational concepts.</p>
+                <a class="watch" href="https://www.youtube.com/watch?v=QkQyJYu-dhk" target="_blank" rel="noopener">Watch video →</a>
               </div>
             </article>
           </div>
@@ -1980,23 +702,22 @@
         <div class="reveal">
           <div class="eyebrow">Chapter 04 / Toolbox</div>
           <h2>Misc resources</h2>
-          <p class="section__intro">Random gems I found useful.</p>
+          <p class="section__intro">Things that don't fit elsewhere but are worth knowing about.</p>
         </div>
-
         <div class="toolbelt reveal">
           <article class="tool">
             <div class="icon">01</div>
             <h3>Discord sociology channel pins</h3>
-            <p>r/IGCSE Discord sociology channel pins.</p>
+            <p>The r/IGCSE Discord server has a Sociology channel with pinned resources, shared notes, and people who've already asked whatever question you're about to ask. Worth joining.</p>
             <div class="tag-row">
-              <span class="tag">community-discovered</span>
-              <span class="tag">fresh links</span>
+              <span class="tag">community</span>
+              <span class="tag">shared resources</span>
             </div>
           </article>
           <article class="tool">
             <div class="icon">02</div>
             <h3>Quizlet decks</h3>
-            <p>Quizlet decks for sociologists, terminology, and quick active recall.</p>
+            <p>Useful Quizlet decks for sociologists, key terminology, and quick active recall. Search "IGCSE Sociology 0495" on Quizlet and filter for the most-studied sets.</p>
             <div class="tag-row">
               <span class="tag gold">terminology</span>
               <span class="tag">active recall</span>
@@ -2011,46 +732,47 @@
         <div class="reveal">
           <div class="eyebrow">Chapter 05 / Exam tactics</div>
           <h2>Tips</h2>
-          <p class="section__intro">How to not lose free marks.</p>
+          <p class="section__intro">Straightforward things that stop you dropping marks you already know how to get.</p>
         </div>
-
         <div class="tips-board reveal">
           <aside class="warning-panel">
-            <span class="tag gold">free marks alert</span>
-            <h3>Exam survival basics</h3>
-            <p>Learn sociologists properly. Use PEEL paragraphs. Nail short-answer questions. Self-mark. Manage your time. Use sociological terminology.</p>
+            <div>
+              <span class="tag gold">the short version</span>
+              <h3>Exam survival basics</h3>
+              <p>Name sociologists correctly. Use PEEL for longer answers. Keep short answers precise. Self-mark everything. Watch the clock. Use sociological vocabulary.</p>
+            </div>
+            <div></div>
           </aside>
-
           <div class="tactics">
             <article class="tactic">
               <small>theory marks</small>
-              <h3>Learn sociologists properly</h3>
-              <p>Learn sociologists properly. Examiners love it when you use theorists correctly.</p>
+              <h3>Name sociologists correctly</h3>
+              <p>"A sociologist said…" gets you nothing. "Durkheim argued…" gets you marks. Name them, state their theory, link it to your point.</p>
             </article>
             <article class="tactic">
               <small>structure</small>
               <h3>PEEL paragraphs</h3>
-              <p>Point, Evidence, Explanation, Link back to the question. This formula is your GOD.</p>
+              <p>Point, Evidence, Explanation, Link back to the question. Use this for every extended answer. It's not glamorous but it works.</p>
             </article>
             <article class="tactic">
               <small>quick wins</small>
               <h3>Short-answer questions</h3>
-              <p>Keep short-answer questions precise and supported with an example when it helps.</p>
+              <p>Be precise and include a brief example where it helps. One or two sentences. Don't write three paragraphs for a 2-mark question.</p>
             </article>
             <article class="tactic">
               <small>feedback loop</small>
               <h3>Self-marking</h3>
-              <p>Self-mark with the mark scheme open. It's the fastest way to learn how examiners think.</p>
+              <p>Mark your own past papers with the mark scheme open every time. You learn more from understanding why an answer gets marks than from getting it right.</p>
             </article>
             <article class="tactic">
               <small>exam stamina</small>
               <h3>Time management</h3>
-              <p>Practice past papers under timed conditions, get a smooth pen, and train your hand.</p>
+              <p>Practise under timed conditions. Your handwriting slows you down more than you think. Train your hand as much as your brain.</p>
             </article>
             <article class="tactic">
-              <small>voice</small>
+              <small>vocabulary</small>
               <h3>Sociological terminology</h3>
-              <p>Use specific sociological vocabulary that shows you know what you're talking about.</p>
+              <p>Use the correct terms throughout — social stratification, socialisation, norms, values, institutions. It signals that you actually know the subject.</p>
             </article>
           </div>
         </div>
@@ -2061,31 +783,29 @@
       <div class="wrap letter reveal">
         <div class="eyebrow">Chapter 06 / Real talk</div>
         <h2>Advice</h2>
-        <p class="section__intro">Aka "what actually works."</p>
-
+        <p class="section__intro">Study techniques that have actual evidence behind them — and that work for Sociology specifically.</p>
         <div class="advice-stream">
           <article class="advice-item">
             <strong>Active recall</strong>
-            <p>Highlighting your notes in four different colours and calling it "studying" is not studying. Test yourself. Close the book. Say it out loud.</p>
+            <p>Highlighting notes in four colours is not revising. Close the book and try to recall what you just read. Say it out loud, write it down from memory, test yourself. It feels harder — that's the point.</p>
           </article>
           <article class="advice-item">
             <strong>Spaced repetition</strong>
-            <p>Use spaced repetition. Review things just before you would forget them instead of cramming.</p>
+            <p>Review material just before you'd forget it, not the night before the exam. Anki is designed specifically for this. It's boring to set up. It works.</p>
           </article>
           <article class="advice-item">
-            <strong>Past papers early</strong>
-            <p>Do past papers early. The exam has a format, so get familiar with it before it surprises you.</p>
+            <strong>Past papers from day one</strong>
+            <p>The exam has a specific format and specific expectations. The only way to get comfortable with both is to practise them early. Don't save past papers for the revision period.</p>
           </article>
           <article class="advice-item">
-            <strong>Teach someone else</strong>
-            <p>Teach someone else. If you can explain a concept clearly, you actually understand it. Feynman technique for the W.</p>
+            <strong>Teach it to someone else</strong>
+            <p>If you can explain a concept clearly — to a friend, your parent, your cat — you actually understand it. If you stumble, you've found exactly what needs more work. This is the Feynman technique and it's genuinely useful.</p>
           </article>
         </div>
-
         <blockquote class="closing-quote">
-          "There aren't enough sociology students - people genuinely don't realize how amazing this subject is."
+          "There aren't enough sociology students — people genuinely don't realise how good this subject is."
         </blockquote>
-        <p style="margin-top:1rem;color:var(--gold-300);font-weight:900;">- Mr_Meteora</p>
+        <p style="margin-top:1rem;color:var(--gold-300);font-weight:900;">— Mr_Meteora</p>
       </div>
     </section>
 
@@ -2094,36 +814,27 @@
         <div>
           <div class="eyebrow">Chapter 07 / Build it with us</div>
           <h2>Help build the largest student-made Sociology hub.</h2>
-          <p class="section__intro">Found useful notes, videos, flashcards, study techniques, or websites? Submit them and help other Sociology students out.</p>
+          <p class="section__intro">Found useful notes, videos, flashcards, study techniques, or websites? Submit them and help other students out. The more people contribute, the better this gets.</p>
           <a class="button" href="https://forms.gle/vQjZyd8gJaJABVA1A" target="_blank" rel="noopener">Submit a resource</a>
         </div>
-
         <div class="contact-grid" aria-label="Contact details">
-          <div class="contact-line">
-            <span>Email</span>
-            <a href="mailto:musaharoon7797@gmail.com">musaharoon7797@gmail.com</a>
-          </div>
-          <div class="contact-line">
-            <span>Discord</span>
-            <b>mr_meteora</b>
-          </div>
-          <div class="contact-line">
-            <span>Google Form</span>
-            <a href="https://forms.gle/vQjZyd8gJaJABVA1A" target="_blank" rel="noopener">Open contribution form</a>
-          </div>
-          <p>Drop any questions, resources, or your own tips. The more, the better. We're all suffering together.</p>
+          <div class="contact-line"><span>Email</span><a href="mailto:musaharoon7797@gmail.com">musaharoon7797@gmail.com</a></div>
+          <div class="contact-line"><span>Discord</span><b>mr_meteora</b></div>
+          <div class="contact-line"><span>Google Form</span><a href="https://forms.gle/vQjZyd8gJaJABVA1A" target="_blank" rel="noopener">Open contribution form</a></div>
+          <p>Drop questions, resources, or tips. Everything gets considered. We're all in this together.</p>
         </div>
       </div>
     </section>
+
   </main>
 
   <footer class="footer">
     <div class="wrap footer__grid">
       <div>
         <strong>IGCSE Sociology Survival Hub</strong>
-        <small>Student-made academic resource hub for educational purposes only. Not affiliated with Cambridge Assessment International Education, Cambridge University Press, YouTube, Reddit, or any exam board. Always verify requirements against your own official syllabus.</small>
+        <small>Student-made academic resource hub for educational purposes only. Not affiliated with Cambridge Assessment International Education, Cambridge University Press, YouTube, Reddit, or any exam board. Always verify your requirements against your own official syllabus.</small>
       </div>
-      <small>Â© 2025 Musa Haroon</small>
+      <small>© 2025 Musa Haroon</small>
     </div>
   </footer>
 
@@ -2131,9 +842,7 @@
     const nav = document.querySelector(".nav");
     const toggle = document.querySelector(".menu-toggle");
     const navLinks = [...document.querySelectorAll(".nav__links a")];
-    const sections = navLinks
-      .map((link) => document.querySelector(link.getAttribute("href")))
-      .filter(Boolean);
+    const sections = navLinks.map(l => document.querySelector(l.getAttribute("href"))).filter(Boolean);
     const resourceSearch = document.querySelector("#resourceSearch");
     const clearSearch = document.querySelector(".clear-search");
     const studyCards = [...document.querySelectorAll("#studyGrid .study-card")];
@@ -2145,80 +854,61 @@
       const isOpen = nav.classList.toggle("open");
       toggle.setAttribute("aria-expanded", String(isOpen));
     });
-
-    navLinks.forEach((link) => {
-      link.addEventListener("click", () => {
-        nav.classList.remove("open");
-        toggle.setAttribute("aria-expanded", "false");
-      });
-    });
+    navLinks.forEach(link => link.addEventListener("click", () => {
+      nav.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
+    }));
 
     if (resourceSearch) {
-      const filterStudyCards = () => {
-        const query = resourceSearch.value.trim().toLowerCase();
-        studyCards.forEach((card) => {
+      const filterCards = () => {
+        const q = resourceSearch.value.trim().toLowerCase();
+        studyCards.forEach(card => {
           const haystack = `${card.textContent} ${card.dataset.keywords || ""}`.toLowerCase();
-          card.hidden = query.length > 0 && !haystack.includes(query);
+          card.hidden = q.length > 0 && !haystack.includes(q);
         });
       };
-
-      resourceSearch.addEventListener("input", filterStudyCards);
-      clearSearch?.addEventListener("click", () => {
-        resourceSearch.value = "";
-        filterStudyCards();
-        resourceSearch.focus();
-      });
+      resourceSearch.addEventListener("input", filterCards);
+      clearSearch?.addEventListener("click", () => { resourceSearch.value = ""; filterCards(); resourceSearch.focus(); });
     }
 
-    const updateTopicProgress = () => {
-      const done = topicBoxes.filter((box) => box.checked).length;
+    const updateProgress = () => {
+      const done = topicBoxes.filter(b => b.checked).length;
       const total = topicBoxes.length;
-      const percent = total === 0 ? 0 : Math.round((done / total) * 100);
-      topicBoxes.forEach((box) => box.closest(".topic-pill")?.classList.toggle("done", box.checked));
-      if (topicProgress) topicProgress.style.setProperty("--progress", `${percent}%`);
+      const pct = total === 0 ? 0 : Math.round((done / total) * 100);
+      topicBoxes.forEach(b => b.closest(".topic-pill")?.classList.toggle("done", b.checked));
+      if (topicProgress) topicProgress.style.setProperty("--progress", `${pct}%`);
       if (topicProgressCopy) {
-        topicProgressCopy.textContent = done === total
-          ? "6/6 topics ticked. Okay academic weapon, calm down."
-          : `${done}/${total} topics ticked. Painfully honest.`;
+        if (done === 0) topicProgressCopy.textContent = "0 of 6 topics covered.";
+        else if (done === total) topicProgressCopy.textContent = "6 of 6 — all topics covered.";
+        else topicProgressCopy.textContent = `${done} of ${total} topics covered.`;
       }
     };
-
-    topicBoxes.forEach((box) => {
+    topicBoxes.forEach(box => {
       const key = `sociology-topic-${box.dataset.topic}`;
       box.checked = localStorage.getItem(key) === "true";
-      box.addEventListener("change", () => {
-        localStorage.setItem(key, String(box.checked));
-        updateTopicProgress();
+      box.addEventListener("change", () => { localStorage.setItem(key, String(box.checked)); updateProgress(); });
+    });
+    if (topicBoxes.length) updateProgress();
+
+    document.querySelectorAll(".flashcard").forEach(card => {
+      card.addEventListener("keydown", e => {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); card.classList.toggle("flipped"); }
       });
     });
 
-    if (topicBoxes.length) {
-      updateTopicProgress();
-    }
-
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          revealObserver.unobserve(entry.target);
-        }
-      });
+    const revealObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visible"); revealObs.unobserve(e.target); }});
     }, { threshold: 0.14 });
+    document.querySelectorAll(".reveal").forEach(el => revealObs.observe(el));
 
-    document.querySelectorAll(".reveal").forEach((item) => revealObserver.observe(item));
-
-    const activeObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        const active = navLinks.find((link) => link.getAttribute("href") === `#${entry.target.id}`);
-        navLinks.forEach((link) => link.classList.toggle("active", link === active));
+    const activeObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const active = navLinks.find(l => l.getAttribute("href") === `#${e.target.id}`);
+        navLinks.forEach(l => l.classList.toggle("active", l === active));
       });
-    }, {
-      rootMargin: "-35% 0px -55% 0px",
-      threshold: 0
-    });
-
-    sections.forEach((section) => activeObserver.observe(section));
+    }, { rootMargin: "-35% 0px -55% 0px", threshold: 0 });
+    sections.forEach(s => activeObs.observe(s));
 
     window.addEventListener("scroll", () => {
       nav.style.boxShadow = window.scrollY > 16 ? "0 16px 50px rgba(0,0,0,0.26)" : "none";
