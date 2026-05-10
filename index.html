@@ -644,6 +644,16 @@
       box-shadow: 0 0 0 3px rgba(214, 172, 68, 0.1);
     }
 
+    .tool-search .clear-search {
+      border: 1px solid rgba(241, 214, 130, 0.28);
+      border-radius: 999px;
+      padding: 0.7rem 0.9rem;
+      background: rgba(214, 172, 68, 0.08);
+      color: var(--gold-300);
+      cursor: pointer;
+      font-weight: 900;
+    }
+
     .study-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -680,6 +690,32 @@
       border-radius: var(--radius);
       padding: 0.7rem;
       background: rgba(5, 16, 29, 0.5);
+      cursor: pointer;
+      transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
+    }
+
+    .topic-pill:hover {
+      transform: translateY(-2px);
+      border-color: rgba(22, 199, 189, 0.36);
+    }
+
+    .topic-pill input {
+      position: absolute;
+      inline-size: 1px;
+      block-size: 1px;
+      opacity: 0;
+    }
+
+    .topic-pill.done {
+      border-color: rgba(241, 214, 130, 0.38);
+      background: rgba(214, 172, 68, 0.1);
+    }
+
+    .topic-pill.done strong::after {
+      content: " - done";
+      color: var(--gold-300);
+      font-size: 0.76rem;
+      font-weight: 900;
     }
 
     .topic-pill strong {
@@ -723,21 +759,6 @@
       font-size: 0.88rem;
     }
 
-    .community-wall {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 0.65rem;
-      margin-top: 0.75rem;
-    }
-
-    .wall-note {
-      border-left: 2px solid var(--teal-300);
-      padding: 0.65rem 0.75rem;
-      background: rgba(22, 199, 189, 0.07);
-      color: var(--mist);
-      font-size: 0.9rem;
-    }
-
     .last-updated {
       display: inline-flex;
       align-items: center;
@@ -746,6 +767,92 @@
       color: var(--muted);
       font-size: 0.82rem;
       font-weight: 850;
+    }
+
+    .progress-bar {
+      height: 9px;
+      overflow: hidden;
+      border-radius: 999px;
+      margin-top: 1rem;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .progress-bar span {
+      display: block;
+      width: var(--progress, 0%);
+      height: 100%;
+      background: linear-gradient(90deg, var(--teal-400), var(--gold-300));
+      transition: width 200ms ease;
+    }
+
+    .progress-copy {
+      margin-top: 0.55rem;
+      color: var(--muted);
+      font-size: 0.86rem;
+      font-weight: 850;
+    }
+
+    .command-list {
+      display: grid;
+      gap: 0.55rem;
+      margin-top: 0.75rem;
+    }
+
+    .command-row {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 0.75rem;
+      border-bottom: 1px solid rgba(127, 243, 234, 0.1);
+      padding-bottom: 0.55rem;
+    }
+
+    .command-row strong {
+      color: var(--gold-300);
+    }
+
+    .answer-skeleton {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.85rem;
+    }
+
+    .skeleton-step {
+      border: 1px solid rgba(127, 243, 234, 0.15);
+      border-radius: var(--radius);
+      padding: 0.75rem;
+      background: rgba(5, 16, 29, 0.48);
+    }
+
+    .skeleton-step strong {
+      display: block;
+      color: var(--gold-300);
+      margin-bottom: 0.35rem;
+    }
+
+    .paper-choice {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.6rem;
+      margin-top: 0.8rem;
+    }
+
+    .choice {
+      border: 1px solid rgba(127, 243, 234, 0.18);
+      border-radius: var(--radius);
+      padding: 0.75rem;
+      background: rgba(255,255,255,0.04);
+    }
+
+    .choice strong {
+      color: var(--ivory);
+    }
+
+    .choice span {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--muted);
+      font-size: 0.84rem;
     }
 
     .section__intro {
@@ -1009,7 +1116,7 @@
 
     .toolbelt {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
       gap: 1rem;
       align-items: stretch;
     }
@@ -1026,7 +1133,6 @@
     }
 
     .tool:nth-child(2) {
-      transform: translateY(28px);
       border-style: solid;
       border-color: rgba(241, 214, 130, 0.25);
     }
@@ -1348,7 +1454,8 @@
       .study-grid,
       .topic-matrix,
       .flashcards,
-      .community-wall,
+      .answer-skeleton,
+      .paper-choice,
       .tactics {
         grid-template-columns: 1fr;
       }
@@ -1483,7 +1590,7 @@
           </div>
           <div class="artifact-card">
             <span class="artifact-kicker">Exam mode</span>
-            <strong>PEEL paragraphs, sociologists, definition questions, and time management.</strong>
+            <strong>PEEL paragraphs, sociologists, short-answer questions, and time management.</strong>
             <p>The things that actually make the exam less terrifying.</p>
           </div>
           <div class="artifact-card">
@@ -1510,7 +1617,7 @@
           <a class="map-step" href="#study-tools">
             <small>02</small>
             <strong>Command center</strong>
-            <span>Track topics, definitions, sociologists, and emergency revision.</span>
+            <span>Track topics, sociologists, command words, and emergency revision.</span>
           </a>
           <a class="map-step" href="#notes">
             <small>03</small>
@@ -1525,7 +1632,7 @@
           <a class="map-step" href="#tips">
             <small>05</small>
             <strong>Exam mode</strong>
-            <span>PEEL, definitions, sociologists, timing. The unsexy stuff that works.</span>
+            <span>PEEL, short answers, sociologists, timing. The unsexy stuff that works.</span>
           </a>
           <a class="map-step" href="#advice">
             <small>06</small>
@@ -1578,6 +1685,7 @@
               <div>
                 <h3>Past papers</h3>
                 <p>Past papers. Do them early, do them properly, and use the mark schemes so you actually learn how examiners think.</p>
+                <p style="margin-top:0.65rem"><a class="resource-link" href="https://ciegt.vercel.app" target="_blank" rel="noopener">Open past papers on CIE GT</a></p>
               </div>
               <span class="tag">practice</span>
             </article>
@@ -1597,16 +1705,16 @@
     <section class="section command-center" id="study-tools">
       <div class="wrap">
         <div class="reveal">
-          <div class="eyebrow">Chapter 01.5 / Command center</div>
-          <h2>Actually useful study tools</h2>
-          <p class="section__intro">Built around the 0495 syllabus, the learner guide logic, and the feedback from my own notes: less waffle, clearer examples, better structure, and more exam-useful stuff.</p>
+          <div class="eyebrow">Chapter 01.5 / Exam kit</div>
+          <h2>Stuff that makes this more than a link dump</h2>
+          <p class="section__intro">This is the useful part: track what you've covered, remember what command words want, plan longer answers, and stop opening ten tabs just to avoid revising.</p>
         </div>
 
         <div class="command-grid reveal">
           <aside class="exam-brief">
             <span class="tag gold">0495 exam map</span>
             <h3>What the exam is actually testing</h3>
-            <p>Two papers. Both 80 marks. Both worth 50%. Paper 1 is compulsory-heavy. Paper 2 makes you choose two out of Family, Education, and Crime.</p>
+            <p>Two papers. Both 80 marks. Both worth 50%. Paper 1 has Research Methods, then a choice. Paper 2 makes you choose two out of Family, Education, and Crime.</p>
             <div class="paper-stack">
               <div class="paper-card">
                 <strong>Paper 1 - 2 hours</strong>
@@ -1631,29 +1739,32 @@
           <div>
             <div class="tool-search">
               <label for="resourceSearch">Find help fast</label>
-              <input id="resourceSearch" type="search" placeholder="Try: definitions, sociologists, Paper 2, crime, emergency..." autocomplete="off">
+              <input id="resourceSearch" type="search" placeholder="Try: sociologists, Paper 2, crime, command words, emergency..." autocomplete="off">
+              <button class="clear-search" type="button">Clear</button>
             </div>
 
             <div class="study-grid" id="studyGrid">
               <article class="study-card wide" data-keywords="topic tracker syllabus paper 1 paper 2 research identity inequality family education crime">
                 <span class="tag gold">topic tracker</span>
                 <h3>0495 topic tracker</h3>
-                <p>Use this as your syllabus radar. Green-light the big six before you start pretending that one pretty notes page is enough.</p>
+                <p>Use this as your syllabus radar. Tick things off here instead of lying to yourself in your head.</p>
                 <div class="topic-matrix">
-                  <div class="topic-pill"><span>Paper 1</span><strong>Research Methods</strong></div>
-                  <div class="topic-pill"><span>Paper 1</span><strong>Identity: self and society</strong></div>
-                  <div class="topic-pill"><span>Paper 1</span><strong>Social stratification and inequality</strong></div>
-                  <div class="topic-pill"><span>Paper 2</span><strong>Family</strong></div>
-                  <div class="topic-pill"><span>Paper 2</span><strong>Education</strong></div>
-                  <div class="topic-pill"><span>Paper 2</span><strong>Crime, deviance and social control</strong></div>
+                  <label class="topic-pill"><input type="checkbox" data-topic="research-methods"><span>Paper 1</span><strong>Research Methods</strong></label>
+                  <label class="topic-pill"><input type="checkbox" data-topic="identity"><span>Paper 1</span><strong>Identity: self and society</strong></label>
+                  <label class="topic-pill"><input type="checkbox" data-topic="inequality"><span>Paper 1</span><strong>Social stratification and inequality</strong></label>
+                  <label class="topic-pill"><input type="checkbox" data-topic="family"><span>Paper 2</span><strong>Family</strong></label>
+                  <label class="topic-pill"><input type="checkbox" data-topic="education"><span>Paper 2</span><strong>Education</strong></label>
+                  <label class="topic-pill"><input type="checkbox" data-topic="crime"><span>Paper 2</span><strong>Crime, deviance and social control</strong></label>
                 </div>
+                <div class="progress-bar" aria-hidden="true"><span id="topicProgress"></span></div>
+                <p class="progress-copy" id="topicProgressCopy">0/6 topics ticked. Painfully honest.</p>
               </article>
 
               <article class="study-card" data-keywords="exam checklist before paper revision checklist ao1 ao2 ao3">
                 <span class="tag">exam checklist</span>
                 <h3>Before you sit the paper</h3>
                 <ul class="checklist">
-                  <li>Can I define key terms in one clean sentence?</li>
+                  <li>Can I explain key terms without turning them into a whole essay?</li>
                   <li>Can I explain both sides of a debate?</li>
                   <li>Can I use named sociologists without randomly sprinkling them in?</li>
                   <li>Can I add examples that are short and actually relevant?</li>
@@ -1661,15 +1772,15 @@
                 </ul>
               </article>
 
-              <article class="study-card" data-keywords="definition bank terms concepts norms values culture socialisation stratification deviance validity reliability">
-                <span class="tag">definition bank</span>
-                <h3>Definition bank starter</h3>
-                <ul class="mini-list">
-                  <li><strong>Validity:</strong> how accurately findings reflect real life.</li>
-                  <li><strong>Reliability:</strong> whether research can be repeated under similar conditions.</li>
-                  <li><strong>Socialisation:</strong> how people learn norms, values, and behaviour.</li>
-                  <li><strong>Deviance:</strong> behaviour that breaks social norms.</li>
-                </ul>
+              <article class="study-card" data-keywords="command words describe explain evaluate discuss to what extent compare assess">
+                <span class="tag">command words</span>
+                <h3>What the question is really asking</h3>
+                <div class="command-list">
+                  <div class="command-row"><strong>Describe</strong><span>Say what it is like. Keep it focused.</span></div>
+                  <div class="command-row"><strong>Explain</strong><span>Give the reason and show the link. Do not just state.</span></div>
+                  <div class="command-row"><strong>Compare</strong><span>Show similarity or difference clearly.</span></div>
+                  <div class="command-row"><strong>Evaluate</strong><span>Strengths, weaknesses, then judgement. This is where marks live.</span></div>
+                </div>
               </article>
 
               <article class="study-card wide" data-keywords="sociologist flashcards marx durkheim weber oakley becker merton feminism functionalism marxism interactionism">
@@ -1697,37 +1808,38 @@
                 </ul>
               </article>
 
-              <article class="study-card" data-keywords="top 5 emergency resources night before exam znotes syllabus sociologists past papers definitions">
+              <article class="study-card" data-keywords="top 5 emergency resources night before exam znotes syllabus sociologists past papers command words">
                 <span class="tag gold">emergency mode</span>
                 <h3>Top 5 if the exam is soon</h3>
                 <ol class="mini-list">
                   <li>Official syllabus</li>
                   <li>ZNotes / your shortest notes</li>
                   <li>Sociologists cheat sheet</li>
-                  <li>Recent past papers + mark schemes</li>
-                  <li>Definitions and command words</li>
+                  <li><a class="resource-link" href="https://ciegt.vercel.app" target="_blank" rel="noopener">Recent past papers + mark schemes</a></li>
+                  <li>Command words + answer structure</li>
                 </ol>
               </article>
 
-              <article class="study-card" data-keywords="notes feedback improve examples tables formatting copyright density">
-                <span class="tag">notes upgrade</span>
-                <h3>What my notes feedback screamed</h3>
-                <ul class="mini-list">
-                  <li>Keep top exam points, not every single possible point.</li>
-                  <li>Use comparison tables when arguments get messy.</li>
-                  <li>Make examples short enough to remember.</li>
-                  <li>Rewrite in your own words. Copyright jump scare avoided.</li>
-                </ul>
+              <article class="study-card wide" data-keywords="15 marker essay structure longer answers peel evaluate judgement">
+                <span class="tag gold">long-answer skeleton</span>
+                <h3>For 15 markers when your brain goes blank</h3>
+                <p>Do not write a sociology-themed diary entry. Build the answer like this.</p>
+                <div class="answer-skeleton">
+                  <div class="skeleton-step"><strong>1. Point</strong><span>Answer the question directly.</span></div>
+                  <div class="skeleton-step"><strong>2. Evidence</strong><span>Add concept, example, or sociologist.</span></div>
+                  <div class="skeleton-step"><strong>3. Explain</strong><span>Show why it matters.</span></div>
+                  <div class="skeleton-step"><strong>4. Evaluate</strong><span>Limit it, contrast it, judge it.</span></div>
+                </div>
               </article>
 
-              <article class="study-card" data-keywords="community wall submissions students resources discord form">
-                <span class="tag">community wall</span>
-                <h3>Student-submitted corner</h3>
-                <p>This can become the living part of the site once people start sending resources in.</p>
-                <div class="community-wall">
-                  <div class="wall-note">"Add a flashcard deck for sociologists."</div>
-                  <div class="wall-note">"Make a Paper 2 timing guide."</div>
-                  <div class="wall-note">"Drop useful Discord pins here."</div>
+              <article class="study-card wide" data-keywords="paper 2 chooser family education crime strategy choose two">
+                <span class="tag">Paper 2 chooser</span>
+                <h3>Paper 2: choose your two wisely</h3>
+                <p>Family, Education, Crime. Pick the two you can actually argue, not the two that look cute on the day.</p>
+                <div class="paper-choice">
+                  <div class="choice"><strong>Family</strong><span>Good if you know roles, marriage, divorce, childhood, and theory.</span></div>
+                  <div class="choice"><strong>Education</strong><span>Good if you can handle class, gender, ethnicity, hidden curriculum, and labelling.</span></div>
+                  <div class="choice"><strong>Crime</strong><span>Good if you know deviance, social control, official stats, labelling, and explanations.</span></div>
                 </div>
               </article>
             </div>
@@ -1903,19 +2015,10 @@
           <article class="tool">
             <div class="icon">02</div>
             <h3>Quizlet decks</h3>
-            <p>Quizlet decks for definitions, sociologists, terminology, and quick active recall.</p>
+            <p>Quizlet decks for sociologists, terminology, and quick active recall.</p>
             <div class="tag-row">
-              <span class="tag gold">definitions</span>
+              <span class="tag gold">terminology</span>
               <span class="tag">active recall</span>
-            </div>
-          </article>
-          <article class="tool">
-            <div class="icon">03</div>
-            <h3>Random useful resources</h3>
-            <p>Random useful resources that do not fit neatly anywhere else but still help.</p>
-            <div class="tag-row">
-              <span class="tag">hidden gems</span>
-              <span class="tag">quick support</span>
             </div>
           </article>
         </div>
@@ -1934,7 +2037,7 @@
           <aside class="warning-panel">
             <span class="tag gold">free marks alert</span>
             <h3>Exam survival basics</h3>
-            <p>Learn sociologists properly. Use PEEL paragraphs. Nail definition questions. Self-mark. Manage your time. Use sociological terminology.</p>
+            <p>Learn sociologists properly. Use PEEL paragraphs. Nail short-answer questions. Self-mark. Manage your time. Use sociological terminology.</p>
           </aside>
 
           <div class="tactics">
@@ -1950,8 +2053,8 @@
             </article>
             <article class="tactic">
               <small>quick wins</small>
-              <h3>Definition questions</h3>
-              <p>Keep definition questions short, precise, and supported with an example.</p>
+              <h3>Short-answer questions</h3>
+              <p>Keep short-answer questions precise and supported with an example when it helps.</p>
             </article>
             <article class="tactic">
               <small>feedback loop</small>
@@ -2051,7 +2154,11 @@
       .map((link) => document.querySelector(link.getAttribute("href")))
       .filter(Boolean);
     const resourceSearch = document.querySelector("#resourceSearch");
+    const clearSearch = document.querySelector(".clear-search");
     const studyCards = [...document.querySelectorAll("#studyGrid .study-card")];
+    const topicBoxes = [...document.querySelectorAll(".topic-pill input")];
+    const topicProgress = document.querySelector("#topicProgress");
+    const topicProgressCopy = document.querySelector("#topicProgressCopy");
 
     toggle.addEventListener("click", () => {
       const isOpen = nav.classList.toggle("open");
@@ -2066,13 +2173,46 @@
     });
 
     if (resourceSearch) {
-      resourceSearch.addEventListener("input", () => {
+      const filterStudyCards = () => {
         const query = resourceSearch.value.trim().toLowerCase();
         studyCards.forEach((card) => {
           const haystack = `${card.textContent} ${card.dataset.keywords || ""}`.toLowerCase();
           card.hidden = query.length > 0 && !haystack.includes(query);
         });
+      };
+
+      resourceSearch.addEventListener("input", filterStudyCards);
+      clearSearch?.addEventListener("click", () => {
+        resourceSearch.value = "";
+        filterStudyCards();
+        resourceSearch.focus();
       });
+    }
+
+    const updateTopicProgress = () => {
+      const done = topicBoxes.filter((box) => box.checked).length;
+      const total = topicBoxes.length;
+      const percent = total === 0 ? 0 : Math.round((done / total) * 100);
+      topicBoxes.forEach((box) => box.closest(".topic-pill")?.classList.toggle("done", box.checked));
+      if (topicProgress) topicProgress.style.setProperty("--progress", `${percent}%`);
+      if (topicProgressCopy) {
+        topicProgressCopy.textContent = done === total
+          ? "6/6 topics ticked. Okay academic weapon, calm down."
+          : `${done}/${total} topics ticked. Painfully honest.`;
+      }
+    };
+
+    topicBoxes.forEach((box) => {
+      const key = `sociology-topic-${box.dataset.topic}`;
+      box.checked = localStorage.getItem(key) === "true";
+      box.addEventListener("change", () => {
+        localStorage.setItem(key, String(box.checked));
+        updateTopicProgress();
+      });
+    });
+
+    if (topicBoxes.length) {
+      updateTopicProgress();
     }
 
     const revealObserver = new IntersectionObserver((entries) => {
@@ -2105,5 +2245,3 @@
   </script>
 </body>
 </html>
-
-
