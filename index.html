@@ -52,6 +52,8 @@
     a{color:inherit;text-decoration:none}
     .skip-link{position:fixed;top:12px;left:12px;z-index:100;padding:0.7rem 1rem;background:var(--gold-500);color:#071827;transform:translateY(-150%);transition:transform 180ms ease}
     .skip-link:focus{transform:translateY(0)}
+
+    /* NAV */
     .nav{position:fixed;top:0;left:0;right:0;z-index:50;border-bottom:1px solid rgba(127,243,234,0.13);background:rgba(5,16,29,0.78);backdrop-filter:blur(22px)}
     .nav__inner{width:min(var(--max),calc(100% - 32px));min-height:72px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem}
     .brand{display:inline-flex;align-items:center;gap:0.7rem;min-width:max-content;font-weight:800}
@@ -61,6 +63,8 @@
     .nav__links a:hover,.nav__links a.active{color:var(--ivory);border-color:rgba(22,199,189,0.42);background:rgba(22,199,189,0.1);transform:translateY(-1px)}
     .menu-toggle{display:none;width:42px;height:42px;border:1px solid rgba(127,243,234,0.26);border-radius:999px;background:rgba(255,255,255,0.04);color:var(--ivory);cursor:pointer}
     .menu-toggle span{display:block;width:17px;height:2px;margin:4px auto;background:currentColor}
+
+    /* LAYOUT */
     .wrap{width:min(var(--max),calc(100% - 32px));margin:0 auto}
     .section{position:relative;padding:clamp(4.8rem,9vw,8rem) 0;isolation:isolate}
     .section+.section{border-top:1px solid rgba(127,243,234,0.1)}
@@ -72,27 +76,37 @@
     h2{max-width:850px;margin-bottom:1rem;font-size:clamp(2.4rem,5vw,5rem)}
     h3{font-size:1.08rem}
     p{color:var(--mist)}
+
+    /* HERO */
     .hero{min-height:100svh;display:flex;align-items:center;padding:8.2rem 0 5rem;overflow:hidden}
     .hero__grid{position:relative;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(290px,0.55fr);gap:clamp(2rem,5vw,5rem);align-items:center}
     .hero__title span{color:transparent;background:linear-gradient(95deg,var(--teal-300),var(--gold-300) 60%,var(--ivory));-webkit-background-clip:text;background-clip:text;filter:drop-shadow(0 0 24px rgba(22,199,189,0.28))}
     .hero__statement{margin:1.35rem 0 1.7rem;color:var(--ivory);font-size:clamp(1.15rem,2vw,1.45rem);font-weight:800}
     .hero__copy{max-width:740px;font-size:1.02rem}
     .hero__actions{display:flex;flex-wrap:wrap;gap:0.74rem;margin-top:2.2rem}
+
+    /* HERO STATS — cleaned up, no fake progress bars */
     .hero-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0.7rem;max-width:700px;margin-top:1.45rem}
     .hero-stat{border:1px solid rgba(127,243,234,0.18);border-radius:var(--radius);padding:0.8rem;background:rgba(255,255,255,0.045)}
     .hero-stat strong{display:block;color:var(--gold-300);font-size:1.4rem;line-height:1}
     .hero-stat span{display:block;margin-top:0.35rem;color:var(--muted);font-size:0.76rem;font-weight:850;text-transform:uppercase}
+
+    /* PILLS & BUTTONS */
     .pill,.button{display:inline-flex;align-items:center;justify-content:center;gap:0.48rem;border-radius:999px;min-height:44px;padding:0.72rem 1rem;font-weight:850;transition:transform 180ms ease,border-color 180ms ease,background 180ms ease,box-shadow 180ms ease}
     .pill{border:1px solid rgba(127,243,234,0.23);background:rgba(255,255,255,0.045);color:var(--mist)}
     .pill:hover{transform:translateY(-2px);border-color:rgba(241,214,130,0.5);background:rgba(22,199,189,0.1);color:var(--ivory)}
     .button{border:1px solid rgba(241,214,130,0.42);background:linear-gradient(135deg,rgba(22,199,189,0.28),rgba(214,172,68,0.32));color:var(--ivory);box-shadow:0 0 34px rgba(22,199,189,0.18)}
     .button:hover{transform:translateY(-2px);box-shadow:0 0 44px rgba(214,172,68,0.22)}
+
+    /* HERO ARTIFACT — simplified cards, no fake meters */
     .hero__artifact{position:relative;min-height:460px;perspective:1000px}
     .artifact-card{position:absolute;inset:38px 0 auto auto;width:min(390px,100%);border:1px solid rgba(127,243,234,0.26);border-radius:var(--radius);padding:1.2rem;background:linear-gradient(160deg,rgba(22,199,189,0.13),rgba(214,172,68,0.08)),rgba(7,24,39,0.8);box-shadow:var(--shadow),0 0 70px rgba(22,199,189,0.16);transform:rotateY(-8deg) rotateX(5deg);backdrop-filter:blur(20px);animation:drift 8s ease-in-out infinite}
     .artifact-card:nth-child(2){inset:210px auto auto 14px;width:min(305px,82%);animation-delay:-2.4s;border-color:rgba(241,214,130,0.3);transform:rotateY(8deg) rotateX(4deg)}
     .artifact-card:nth-child(3){inset:auto 20px 18px auto;width:min(270px,78%);animation-delay:-4.5s;transform:rotateZ(-2deg)}
     .artifact-kicker{color:var(--teal-300);font-size:0.74rem;font-weight:900;text-transform:uppercase}
     .artifact-card strong{display:block;margin:0.3rem 0 0.45rem;color:var(--ivory);font-size:1.1rem}
+
+    /* SURVIVAL MAP */
     .survival-map{margin-top:-2rem;padding:0 0 clamp(4rem,7vw,6rem);position:relative;z-index:2}
     .map-panel{border:1px solid rgba(127,243,234,0.22);border-radius:var(--radius);padding:clamp(1rem,3vw,1.4rem);background:linear-gradient(135deg,rgba(22,199,189,0.15),rgba(214,172,68,0.08)),rgba(5,16,29,0.82);box-shadow:var(--shadow);backdrop-filter:blur(18px)}
     .map-header{display:flex;align-items:end;justify-content:space-between;gap:1rem;margin-bottom:1rem}
@@ -107,6 +121,8 @@
     .map-step small{color:var(--teal-300);font-weight:950;text-transform:uppercase}
     .map-step strong{display:block;margin:0.55rem 0 0.35rem;color:var(--ivory);font-size:0.98rem;line-height:1.2}
     .map-step span{color:var(--muted);font-size:0.82rem;line-height:1.35}
+
+    /* COMMAND CENTER */
     .command-center{background:radial-gradient(circle at 15% 20%,rgba(22,199,189,0.14),transparent 28rem),radial-gradient(circle at 86% 8%,rgba(214,172,68,0.1),transparent 25rem),rgba(255,255,255,0.012)}
     .command-grid{display:grid;grid-template-columns:minmax(280px,0.82fr) minmax(0,1.18fr);gap:1rem;align-items:start}
     .exam-brief{border:1px solid rgba(241,214,130,0.28);border-radius:var(--radius);padding:1.25rem;background:linear-gradient(145deg,rgba(214,172,68,0.13),rgba(22,199,189,0.08)),var(--glass);box-shadow:var(--shadow)}
@@ -133,6 +149,8 @@
     .topic-pill.done strong::after{content:" ✓";color:var(--gold-300);font-size:0.76rem;font-weight:900}
     .topic-pill strong{display:block;color:var(--ivory);line-height:1.25}
     .topic-pill span{color:var(--muted);font-size:0.78rem;font-weight:850;text-transform:uppercase}
+
+    /* FLASHCARDS — flip interaction */
     .flashcards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0.65rem;margin-top:0.8rem}
     .flashcard{min-height:132px;cursor:pointer;perspective:600px}
     .flashcard-inner{position:relative;width:100%;height:100%;min-height:132px;transform-style:preserve-3d;transition:transform 400ms ease}
@@ -143,10 +161,14 @@
     .flashcard-front strong{color:var(--gold-300);font-size:1rem}
     .flashcard-front .flip-hint{color:var(--muted);font-size:0.72rem;margin-top:0.5rem}
     .flashcard-back span{color:var(--mist);font-size:0.88rem;text-align:center;line-height:1.5}
+
     .last-updated{display:inline-flex;align-items:center;gap:0.55rem;margin-top:1rem;color:var(--muted);font-size:0.82rem;font-weight:850}
+
+    /* PROGRESS BAR */
     .progress-bar{height:9px;overflow:hidden;border-radius:999px;margin-top:1rem;background:rgba(255,255,255,0.08)}
     .progress-bar span{display:block;width:var(--progress,0%);height:100%;background:linear-gradient(90deg,var(--teal-400),var(--gold-300));transition:width 400ms cubic-bezier(.4,0,.2,1)}
     .progress-copy{margin-top:0.55rem;color:var(--muted);font-size:0.86rem;font-weight:850}
+
     .command-list{display:grid;gap:0.55rem;margin-top:0.75rem}
     .command-row{display:grid;grid-template-columns:120px 1fr;gap:0.75rem;border-bottom:1px solid rgba(127,243,234,0.1);padding-bottom:0.55rem}
     .command-row strong{color:var(--gold-300)}
@@ -155,8 +177,12 @@
     .choice strong{color:var(--ivory)}
     .choice span{display:block;margin-top:0.35rem;color:var(--muted);font-size:0.84rem}
     .section__intro{max-width:700px;margin-bottom:2.5rem;font-size:1.04rem}
+
+    /* TAGS */
     .tag{display:inline-flex;align-items:center;width:fit-content;border:1px solid rgba(127,243,234,0.22);border-radius:999px;padding:0.25rem 0.58rem;color:var(--teal-300);background:rgba(22,199,189,0.075);font-size:0.72rem;font-weight:850}
     .tag.gold{border-color:rgba(241,214,130,0.25);color:var(--gold-300);background:rgba(214,172,68,0.08)}
+
+    /* ARCHIVE / RESOURCES */
     .archive-layout{display:grid;grid-template-columns:0.9fr 1.15fr;gap:1.4rem;align-items:stretch}
     .archive-feature{border:1px solid rgba(241,214,130,0.28);border-radius:var(--radius);padding:clamp(1.4rem,4vw,2.4rem);background:linear-gradient(145deg,rgba(214,172,68,0.14),rgba(22,199,189,0.07)),var(--glass);box-shadow:var(--shadow)}
     .archive-feature .stamp{display:inline-flex;margin-bottom:1.6rem;border:1px solid rgba(241,214,130,0.38);padding:0.4rem 0.68rem;color:var(--gold-300);font-weight:900;text-transform:uppercase;transform:rotate(-2deg)}
@@ -167,6 +193,8 @@
     .number{width:42px;height:42px;display:grid;place-items:center;border:1px solid rgba(241,214,130,0.28);color:var(--gold-300);font-weight:900}
     .resource-link{color:var(--ivory);font-weight:850}
     .resource-link::after{content:" →";color:var(--teal-300)}
+
+    /* VAULT / NOTES */
     .vault{background:linear-gradient(180deg,rgba(22,199,189,0.08),transparent 25%),rgba(255,255,255,0.018)}
     .vault-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:auto;gap:1rem;align-items:stretch}
     .vault-card{position:relative;overflow:hidden;border:1px solid rgba(127,243,234,0.18);border-radius:var(--radius);padding:1.35rem;background:linear-gradient(145deg,rgba(12,55,76,0.86),rgba(6,19,31,0.72));transition:transform 200ms ease,border-color 200ms ease,box-shadow 200ms ease}
@@ -175,6 +203,8 @@
     .vault-card.featured{grid-column:span 2;background:linear-gradient(145deg,rgba(22,199,189,0.18),rgba(214,172,68,0.1)),rgba(5,16,29,0.75)}
     .vault-card h3{position:relative;margin:1.1rem 0 0.7rem;color:var(--ivory);font-size:clamp(1.25rem,2vw,2rem)}
     .tag-row{position:relative;display:flex;flex-wrap:wrap;gap:0.42rem;margin-top:1.1rem}
+
+    /* YOUTUBE / MEDIA */
     .media{overflow:hidden}
     .media-stage{display:grid;grid-template-columns:360px 1fr;gap:1.2rem;align-items:stretch}
     .spotlight{position:sticky;top:96px;align-self:start;min-height:500px;border:1px solid rgba(241,214,130,0.28);border-radius:var(--radius);padding:1.35rem;background:linear-gradient(180deg,rgba(214,172,68,0.15),rgba(22,199,189,0.12)),var(--glass);box-shadow:var(--shadow)}
@@ -182,6 +212,8 @@
     .channel-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0.9rem}
     .channel-card{display:grid;grid-template-columns:92px 1fr;gap:1rem;min-height:150px;border:1px solid rgba(127,243,234,0.16);border-radius:var(--radius);padding:0.8rem;background:rgba(255,255,255,0.045);transition:transform 180ms ease,background 180ms ease,border-color 180ms ease}
     .channel-card:hover{transform:translateY(-3px);background:rgba(22,199,189,0.075);border-color:rgba(22,199,189,0.38)}
+
+    /* CHANNEL THUMBS — coloured circle badges */
     .thumb{display:grid;place-items:center;min-height:86px;border-radius:50%;width:72px;height:72px;margin:0 auto;border:2px solid rgba(255,255,255,0.12);font-size:1.1rem;font-weight:950;letter-spacing:0.01em;color:#fff}
     .thumb-cc{background:radial-gradient(135deg,#e63946,#c1121f)}
     .thumb-hq{background:radial-gradient(135deg,#2a9d8f,#264653)}
@@ -190,14 +222,19 @@
     .thumb-ay{background:radial-gradient(135deg,#6a4c93,#1982c4)}
     .thumb-ri{background:radial-gradient(135deg,#ff595e,#ff924c)}
     .thumb-gg{background:radial-gradient(135deg,#06d6a0,#118ab2)}
+
     .channel-card p{margin:0.45rem 0 0.7rem;font-size:0.9rem}
     .watch{display:inline-flex;color:var(--teal-300);font-size:0.85rem;font-weight:900}
+
+    /* TOOLBOX / MISC */
     .toolbox{background:linear-gradient(90deg,rgba(214,172,68,0.08),transparent 28%),linear-gradient(270deg,rgba(22,199,189,0.1),transparent 34%)}
     .toolbelt{display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:stretch}
     .tool{position:relative;min-height:280px;border:1px dashed rgba(127,243,234,0.28);border-radius:var(--radius);padding:1.3rem;background:linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.025)),rgba(9,28,43,0.82)}
     .tool:nth-child(2){border-style:solid;border-color:rgba(241,214,130,0.25)}
     .tool h3{margin:1rem 0 0.8rem;color:var(--gold-300);font-size:1.32rem}
     .tool .icon{width:54px;height:54px;display:grid;place-items:center;border-radius:50%;background:rgba(22,199,189,0.12);border:1px solid rgba(127,243,234,0.28);color:var(--teal-300);font-weight:950}
+
+    /* TIPS */
     .tips-board{display:grid;grid-template-columns:1fr;gap:1.1rem;align-items:start}
     .warning-panel{display:grid;grid-template-columns:minmax(220px,0.45fr) 1fr;gap:1rem;align-items:center;border:1px solid rgba(241,214,130,0.34);border-radius:var(--radius);padding:1.4rem;background:linear-gradient(145deg,rgba(214,172,68,0.14),rgba(5,16,29,0.75)),var(--glass);box-shadow:var(--shadow)}
     .warning-panel h3{margin:0.7rem 0;font-family:Georgia,"Times New Roman",serif;font-size:2.1rem}
@@ -205,6 +242,8 @@
     .tactic{border:1px solid rgba(127,243,234,0.16);border-radius:var(--radius);padding:1rem;background:rgba(255,255,255,0.045);transition:transform 180ms ease,border-color 180ms ease}
     .tactic:hover{transform:translateY(-3px);border-color:rgba(22,199,189,0.38)}
     .tactic small{display:inline-flex;margin-bottom:0.65rem;color:var(--gold-300);font-weight:950;text-transform:uppercase}
+
+    /* ADVICE */
     .advice{background:linear-gradient(180deg,transparent,rgba(22,199,189,0.08) 40%,transparent),rgba(255,255,255,0.012)}
     .letter{max-width:900px;margin:0 auto}
     .letter h2{margin-bottom:2rem}
@@ -212,19 +251,28 @@
     .advice-item{display:grid;grid-template-columns:150px 1fr;gap:1.5rem;padding:0 0 1.7rem;border-bottom:1px solid rgba(127,243,234,0.14)}
     .advice-item strong{color:var(--gold-300);font-size:0.9rem;text-transform:uppercase}
     .closing-quote{margin-top:3.2rem;border-left:2px solid var(--gold-300);padding:0.5rem 0 0.5rem 1.6rem;color:var(--ivory);font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.5rem,3vw,2.5rem);line-height:1.2}
+
+    /* CONTRIBUTE */
     .contribute{padding-bottom:5rem}
     .contribute-panel{display:grid;grid-template-columns:1fr 0.9fr;gap:1.2rem;border:1px solid rgba(127,243,234,0.2);border-radius:var(--radius);padding:clamp(1.2rem,4vw,2rem);background:radial-gradient(circle at 0 0,rgba(22,199,189,0.2),transparent 24rem),radial-gradient(circle at 100% 20%,rgba(214,172,68,0.14),transparent 22rem),rgba(5,16,29,0.72);box-shadow:var(--shadow)}
     .contact-grid{display:grid;gap:0.8rem;align-content:start}
     .contact-line{display:flex;flex-wrap:wrap;gap:0.6rem;justify-content:space-between;border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius);padding:1rem;background:rgba(255,255,255,0.045)}
     .contact-line span{color:var(--muted);font-weight:850}
     .contact-line a,.contact-line b{color:var(--teal-300);word-break:break-word}
+
+    /* FOOTER */
     .footer{border-top:1px solid rgba(127,243,234,0.14);padding:2.2rem 0;background:rgba(3,12,22,0.72)}
     .footer__grid{display:grid;grid-template-columns:1fr auto;gap:1.5rem;align-items:end}
     .footer small{display:block;color:var(--muted);max-width:760px}
+
+    /* REVEAL */
     .reveal{opacity:0;transform:translateY(22px);transition:opacity 650ms ease,transform 650ms ease}
     .reveal.visible{opacity:1;transform:translateY(0)}
+
     @keyframes drift{0%,100%{translate:0 0}50%{translate:0 -14px}}
+
     @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important}}
+
     @media(max-width:980px){
       .hero__grid,.archive-layout,.command-grid,.vault-grid,.media-stage,.tips-board,.contribute-panel,.footer__grid{grid-template-columns:1fr}
       .vault-card.featured{grid-column:auto}
@@ -264,6 +312,7 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
+
   <nav class="nav" aria-label="Primary navigation">
     <div class="nav__inner">
       <a class="brand" href="#hero" aria-label="IGCSE Sociology Survival Hub home">
@@ -288,14 +337,19 @@
 
   <main id="main">
 
+    <!-- ═══════════ HERO ═══════════ -->
     <section class="hero section" id="hero">
       <div class="wrap hero__grid">
         <div class="reveal">
           <div class="eyebrow">Cambridge IGCSE / O-Level Sociology 0495</div>
           <h1 class="hero__title">The guide to <span>actually</span> surviving Sociology.</h1>
           <p class="hero__statement">Built by students, for students.</p>
-          <p class="hero__copy">Hey, fellow sociology students! I've been collecting resources and advice for a while and decided to dump it all here instead of gatekeeping it. Whether you just cracked open the syllabus for the first time or you're three days from the exam running on White Monsters and sheer denial — I hope there's something here for you.</p>
-          <p class="hero__copy" style="margin-top:0.9rem">This is built around the Cambridge 0495 syllabus, which is identical to O-Level. For Edexcel or AQA, most of it still applies — just double-check against your own spec, because boards love being subtly different for no reason. Drop your own resources and tips in the contribute section. We're all in this together.</p>
+          <p class="hero__copy">
+            Hey, fellow sociology students! I've been collecting resources and advice for a while and decided to dump it all here instead of gatekeeping it. Whether you just cracked open the syllabus for the first time or you're three days from the exam running on White Monsters and sheer denial — I hope there's something here for you.
+          </p>
+          <p class="hero__copy" style="margin-top:0.9rem">
+            This is built around the Cambridge 0495 syllabus, which is identical to O-Level. For Edexcel or AQA, most of it still applies — just double-check against your own spec, because boards love being subtly different for no reason. Drop your own resources and tips in the contribute section. We're all in this together.
+          </p>
           <div class="hero__actions" aria-label="Quick navigation">
             <a class="button" href="#resources">Start with resources</a>
             <a class="pill" href="#notes">Revision Notes</a>
@@ -311,6 +365,7 @@
             <div class="hero-stat"><strong>0495</strong><span>Cambridge focus</span></div>
           </div>
         </div>
+
         <div class="hero__artifact" aria-hidden="true">
           <div class="artifact-card">
             <span class="artifact-kicker">What's in here</span>
@@ -331,6 +386,7 @@
       </div>
     </section>
 
+    <!-- ═══════════ SURVIVAL MAP ═══════════ -->
     <section class="survival-map" aria-label="Sociology survival map">
       <div class="wrap map-panel reveal">
         <div class="map-header">
@@ -349,6 +405,7 @@
       </div>
     </section>
 
+    <!-- ═══════════ RESOURCES ═══════════ -->
     <section class="section" id="resources">
       <div class="wrap">
         <div class="reveal">
@@ -415,6 +472,7 @@
       </div>
     </section>
 
+    <!-- ═══════════ STUDY TOOLS ═══════════ -->
     <section class="section command-center" id="study-tools">
       <div class="wrap">
         <div class="reveal">
@@ -447,6 +505,7 @@
             </div>
             <span class="last-updated">Last updated May 2026 · 2025–2027 syllabus</span>
           </aside>
+
           <div>
             <div class="tool-search">
               <label for="resourceSearch">Find fast</label>
@@ -454,6 +513,7 @@
               <button class="clear-search" type="button">Clear</button>
             </div>
             <div class="study-grid" id="studyGrid">
+
               <article class="study-card wide" data-keywords="topic tracker syllabus paper 1 paper 2 research identity inequality family education crime">
                 <span class="tag gold">topic tracker</span>
                 <h3>0495 topic tracker</h3>
@@ -469,6 +529,7 @@
                 <div class="progress-bar" aria-hidden="true"><span id="topicProgress"></span></div>
                 <p class="progress-copy" id="topicProgressCopy">0 of 6 topics covered.</p>
               </article>
+
               <article class="study-card" data-keywords="exam checklist before paper revision ao1 ao2 ao3">
                 <span class="tag">exam checklist</span>
                 <h3>Before you sit the paper</h3>
@@ -480,6 +541,7 @@
                   <li>Can I evaluate strengths and limitations?</li>
                 </ul>
               </article>
+
               <article class="study-card" data-keywords="command words describe explain evaluate discuss to what extent compare assess">
                 <span class="tag">command words</span>
                 <h3>What the question is actually asking</h3>
@@ -490,6 +552,7 @@
                   <div class="command-row"><strong>Evaluate</strong><span>Strengths, weaknesses, then a judgement. This is where marks live.</span></div>
                 </div>
               </article>
+
               <article class="study-card wide" data-keywords="sociologist flashcards marx durkheim weber oakley becker merton feminism functionalism marxism interactionism">
                 <span class="tag gold">sociologist flashcards</span>
                 <h3>Name-drop responsibly — click a card to flip it</h3>
@@ -533,6 +596,7 @@
                   </div>
                 </div>
               </article>
+
               <article class="study-card" data-keywords="past paper strategy timing mark scheme peel 15 markers paper 1 paper 2">
                 <span class="tag">past-paper strategy</span>
                 <h3>How to actually use past papers</h3>
@@ -543,6 +607,7 @@
                   <li>For longer answers: point, evidence, explain, evaluate, link.</li>
                 </ul>
               </article>
+
               <article class="study-card" data-keywords="top 5 emergency resources night before exam znotes syllabus sociologists past papers command words">
                 <span class="tag gold">exam is tomorrow</span>
                 <h3>Top 5 if you're out of time</h3>
@@ -554,6 +619,7 @@
                   <li>Command words + answer structure</li>
                 </ol>
               </article>
+
               <article class="study-card wide" data-keywords="paper 2 chooser family education crime strategy choose two">
                 <span class="tag">Paper 2 chooser</span>
                 <h3>Paper 2: choose your two wisely</h3>
@@ -564,12 +630,14 @@
                   <div class="choice"><strong>Crime</strong><span>Good if you know deviance, social control, official statistics, labelling, and explanations of crime.</span></div>
                 </div>
               </article>
+
             </div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- ═══════════ NOTES / VAULT ═══════════ -->
     <section class="section vault" id="notes">
       <div class="wrap">
         <div class="reveal">
@@ -616,6 +684,7 @@
       </div>
     </section>
 
+    <!-- ═══════════ YOUTUBE ═══════════ -->
     <section class="section media" id="youtube">
       <div class="wrap">
         <div class="reveal">
@@ -697,6 +766,7 @@
       </div>
     </section>
 
+    <!-- ═══════════ MISC ═══════════ -->
     <section class="section toolbox" id="misc">
       <div class="wrap">
         <div class="reveal">
@@ -727,6 +797,7 @@
       </div>
     </section>
 
+    <!-- ═══════════ TIPS ═══════════ -->
     <section class="section" id="tips">
       <div class="wrap">
         <div class="reveal">
@@ -779,6 +850,7 @@
       </div>
     </section>
 
+    <!-- ═══════════ ADVICE ═══════════ -->
     <section class="section advice" id="advice">
       <div class="wrap letter reveal">
         <div class="eyebrow">Chapter 06 / Real talk</div>
@@ -809,6 +881,7 @@
       </div>
     </section>
 
+    <!-- ═══════════ CONTRIBUTE ═══════════ -->
     <section class="section contribute" id="contribute">
       <div class="wrap contribute-panel reveal">
         <div>
@@ -850,6 +923,7 @@
     const topicProgress = document.querySelector("#topicProgress");
     const topicProgressCopy = document.querySelector("#topicProgressCopy");
 
+    // MOBILE NAV
     toggle.addEventListener("click", () => {
       const isOpen = nav.classList.toggle("open");
       toggle.setAttribute("aria-expanded", String(isOpen));
@@ -859,6 +933,7 @@
       toggle.setAttribute("aria-expanded", "false");
     }));
 
+    // SEARCH
     if (resourceSearch) {
       const filterCards = () => {
         const q = resourceSearch.value.trim().toLowerCase();
@@ -871,6 +946,7 @@
       clearSearch?.addEventListener("click", () => { resourceSearch.value = ""; filterCards(); resourceSearch.focus(); });
     }
 
+    // TOPIC TRACKER
     const updateProgress = () => {
       const done = topicBoxes.filter(b => b.checked).length;
       const total = topicBoxes.length;
@@ -890,17 +966,18 @@
     });
     if (topicBoxes.length) updateProgress();
 
+    // FLASHCARD KEYBOARD
     document.querySelectorAll(".flashcard").forEach(card => {
-      card.addEventListener("keydown", e => {
-        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); card.classList.toggle("flipped"); }
-      });
+      card.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); card.classList.toggle("flipped"); }});
     });
 
+    // SCROLL REVEAL
     const revealObs = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visible"); revealObs.unobserve(e.target); }});
     }, { threshold: 0.14 });
     document.querySelectorAll(".reveal").forEach(el => revealObs.observe(el));
 
+    // ACTIVE NAV
     const activeObs = new IntersectionObserver(entries => {
       entries.forEach(e => {
         if (!e.isIntersecting) return;
@@ -910,10 +987,10 @@
     }, { rootMargin: "-35% 0px -55% 0px", threshold: 0 });
     sections.forEach(s => activeObs.observe(s));
 
+    // NAV SHADOW ON SCROLL
     window.addEventListener("scroll", () => {
       nav.style.boxShadow = window.scrollY > 16 ? "0 16px 50px rgba(0,0,0,0.26)" : "none";
     }, { passive: true });
   </script>
 </body>
 </html>
-
